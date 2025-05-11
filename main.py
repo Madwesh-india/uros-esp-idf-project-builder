@@ -10,30 +10,34 @@ MICRO_ROS_REPO = "https://github.com/micro-ROS/micro_ros_espidf_component.git"
 CONFIG_FILE = "./uros_components_config.json"
 MICRO_ROS_COMPONENTS = "./uros_components"
 
+UDP = 1
+CUSTOM = 2
+
 def main():
-    with open(CONFIG_FILE, "r+") as json_file:
-        try:
-            config_obj = json.load(json_file)
-        except json.JSONDecodeError:
-            config_obj = {}
+    json_file = open(CONFIG_FILE, "r+")
 
-        if "ROS_DISTRO" in config_obj:
-            print(f"ROS2 DISTRIBUTION: {config_obj['ROS_DISTRO']}")
-        else:
-            config_obj["ROS_DISTRO"] = input("ROS2 DISTRIBUTION: ")
+    try:
+        config_obj = json.load(json_file)
+    except json.JSONDecodeError:
+        config_obj = {}
 
-        if not config_obj.get("ROS_DISTRO_BASE_CLONED", False):
-            base_dest = os.path.join(MICRO_ROS_COMPONENTS, "base", "micro_ros_espidf_component")
-            Repo.clone_from(
-                MICRO_ROS_REPO,
-                base_dest,
-                branch=config_obj["ROS_DISTRO"]
-            )
-            config_obj["ROS_DISTRO_BASE_CLONED"] = True
+    if "ROS_DISTRO" in config_obj:
+        print(f"ROS2 DISTRIBUTION: {config_obj['ROS_DISTRO']}")
+    else:
+        config_obj["ROS_DISTRO"] = input("ROS2 DISTRIBUTION: ")
 
-        json_file.seek(0)
-        json.dump(config_obj, json_file, indent=4)
-        json_file.truncate()
+    base_dest = os.path.join(MICRO_ROS_COMPONENTS, "base", "micro_ros_espidf_component")
+    if not config_obj.get("ROS_DISTRO_BASE_CLONED", False):
+        Repo.clone_from(
+            MICRO_ROS_REPO,
+            base_dest,
+            branch=config_obj["ROS_DISTRO"]
+        )
+        config_obj["ROS_DISTRO_BASE_CLONED"] = True
+
+    json_file.seek(0)
+    json.dump(config_obj, json_file, indent=4)
+    json_file.truncate()
 
     target_path = input("Target Location: ")
     expanded_path = os.path.expanduser(target_path)
@@ -66,15 +70,33 @@ def main():
 
     publisher_count = int(input("Publisher Count: "))
     subscriber_count = int(input("Subscriber Count: "))
+    timer_count = int(input("Timer Count: "))
     service_count = int(input("Service Count: "))
     client_count = int(input("Client Count: "))
+    
     mode = int(input(
 """1) UDP (WiFi)
 2) Custom (Serial)
 Select Mode (1 or 2): 
 """))
     
+    component_code = f"{mode}|{publisher_count}|{subscriber_count}|{timer_count}|{service_count}|{client_count}"
+    project_component_path = os.path.join(project_path, "components", "micro_ros_espidf_component")
+
+    if not config_obj.get(component_code, False):
+        component_dest = os.path.join(MICRO_ROS_COMPONENTS, component_code, "micro_ros_espidf_component")
+        shutil.copytree(base_dest, component_dest)
+
+        with open(os.path.join(component_dest, "colcon.meta"), "r+"):
+            pass
+
     
+    os.makedirs(project_component_path, exist_ok=True)
+    os.symlink(component_dest, project_component_path)
+
+
+    json_file.close()
+
 
 if __name__ == "__main__":
     main()
