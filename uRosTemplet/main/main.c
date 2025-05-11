@@ -5,7 +5,7 @@
 #include "freertos/task.h"
 #include "esp_log.h"
 #include "esp_system.h"
-#include "esp_rom_sys.h"      // For esp_rom_delay_us()
+#include "esp_rom_sys.h"
 #include "esp_timer.h"
 #include "driver/gpio.h"
 #include "driver/ledc.h"
@@ -17,6 +17,8 @@
 #include <rcl/error_handling.h>
 #include <rclc/rclc.h>
 #include <rclc/executor.h>
+
+// <||Headers||>
 
 #ifdef CONFIG_MICRO_ROS_ESP_XRCE_DDS_MIDDLEWARE
     #include <rmw_microros/rmw_microros.h>
@@ -40,6 +42,10 @@
     } \
 }
 
+// <||Variables||>
+
+// <||Callbacks||>
+
 void micro_ros_task(void * arg) {
     rcl_allocator_t allocator = rcl_get_default_allocator();
     rclc_support_t support;
@@ -61,24 +67,24 @@ void micro_ros_task(void * arg) {
 
     /* Create a micro-ROS node */
     rcl_node_t node;
-    RCCHECK(rclc_node_init_default(&node, "esp32_node", "", &support));
+    RCCHECK(rclc_node_init_default(&node, "<||Nodename||>", "<||Namespace||>", &support));
 
 
     rclc_executor_t executor;
     RCCHECK(rclc_executor_init(&executor, &support.context, 1, &allocator));
+    // <||AddCallbacks||>
 
     while (1) {        
         /* Process any incoming micro-ROS messages */
         rclc_executor_spin_some(&executor, RCL_MS_TO_NS(10));
         vTaskDelay(pdMS_TO_TICKS(10));
+        // <||ExamplePublish||>
     }
 
 }
 
 void app_main(void)
 {
-
-
     #if defined(RMW_UXRCE_TRANSPORT_CUSTOM)
     rmw_uros_set_custom_transport(
         true,
@@ -103,4 +109,6 @@ void app_main(void)
         CONFIG_MICRO_ROS_APP_TASK_PRIO,      // Priority.
         NULL,                              // Task handle (not used).
     );
+
+    // <||Tasks||>
 }
