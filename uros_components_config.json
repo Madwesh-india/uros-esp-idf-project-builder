@@ -1,3 +1,4 @@
 {
-    "ROS_DISTRO": "humble"
+    "ROS_DISTRO": "humble",
+    "ROS_DISTRO_BASE_CLONED": true
 }
