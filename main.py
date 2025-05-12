@@ -9,6 +9,7 @@ TEMPLET_PATH = "./uRosTemplet"
 MICRO_ROS_REPO = "https://github.com/micro-ROS/micro_ros_espidf_component.git"
 CONFIG_FILE = "./uros_components_config.json"
 MICRO_ROS_COMPONENTS = "./uros_components"
+GITIGNORE_PATH = "./.gitignore"
 
 UDP = 1
 CUSTOM = 2
@@ -34,6 +35,17 @@ def main():
             branch=config_obj["ROS_DISTRO"]
         )
         config_obj["ROS_DISTRO_BASE_CLONED"] = True
+
+        for folder in [".git", ".github"]:
+            dir_to_remove = os.path.join(base_dest, folder)
+            if os.path.exists(dir_to_remove):
+                shutil.rmtree(dir_to_remove)
+
+        with open(GITIGNORE_PATH, "a+") as gitignore:
+            gitignore.seek(0)
+            existing = gitignore.read().splitlines()
+            if base_dest not in existing:
+                gitignore.write(f"{base_dest}/\n")
 
     json_file.seek(0)
     json.dump(config_obj, json_file, indent=4)
@@ -96,10 +108,17 @@ Select Mode (1 or 2):
     
     component_code = f"micro_{mode}{publisher_count}{subscriber_count}{service_count}{client_count}{max_history}"
     project_component_path = os.path.join(project_path, "components", "micro_ros_espidf_component")
-    component_dest = os.path.abspath(os.path.join(MICRO_ROS_COMPONENTS, component_code, "micro_ros_espidf_component"))
+    rel_component_dest = os.path.join(MICRO_ROS_COMPONENTS, component_code, "micro_ros_espidf_component")
+    component_dest = os.path.abspath(rel_component_dest)
 
     if not config_obj.get(component_code, False):
         shutil.copytree(base_dest, component_dest)
+
+        with open(GITIGNORE_PATH, "a+") as gitignore:
+            gitignore.seek(0)
+            existing = gitignore.read().splitlines()
+            if rel_component_dest not in existing:
+                gitignore.write(f"{rel_component_dest}/\n")
 
         with open(os.path.join(component_dest, "colcon.meta"), "r+") as f:
             text = f.read()
