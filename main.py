@@ -70,28 +70,52 @@ def main():
 
     publisher_count = int(input("Publisher Count: "))
     subscriber_count = int(input("Subscriber Count: "))
-    timer_count = int(input("Timer Count: "))
     service_count = int(input("Service Count: "))
     client_count = int(input("Client Count: "))
+    max_history = int(input("Max History: "))
     
+    replacements = {
+        r"(-DRMW_UXRCE_MAX_PUBLISHERS=)\d+":               publisher_count,
+        r"(-DRMW_UXRCE_MAX_SUBSCRIPTIONS=)\d+":            subscriber_count,
+        r"(-DRMW_UXRCE_MAX_SERVICES=)\d+":                 service_count,
+        r"(-DRMW_UXRCE_MAX_CLIENTS=)\d+":                  client_count,
+        r"(-DRMW_UXRCE_MAX_HISTORY=)\d+":                  max_history,
+
+        r"(-DERTPS_MAX_PUBLISHERS=)\d+":                   publisher_count,
+        r"(-DERTPS_MAX_SUBSCRIPTIONS=)\d+":                subscriber_count,
+        r"(-DERTPS_MAX_SERVICES=)\d+":                     service_count,
+        r"(-DERTPS_MAX_CLIENTS=)\d+":                      client_count,
+        r"(-DERTPS_MAX_HISTORY=)\d+":                      max_history,
+    }
+
     mode = int(input(
 """1) UDP (WiFi)
 2) Custom (Serial)
 Select Mode (1 or 2): 
 """))
     
-    component_code = f"{mode}|{publisher_count}|{subscriber_count}|{timer_count}|{service_count}|{client_count}"
+    component_code = f"micro_{mode}{publisher_count}{subscriber_count}{service_count}{client_count}{max_history}"
     project_component_path = os.path.join(project_path, "components", "micro_ros_espidf_component")
+    component_dest = os.path.abspath(os.path.join(MICRO_ROS_COMPONENTS, component_code, "micro_ros_espidf_component"))
 
     if not config_obj.get(component_code, False):
-        component_dest = os.path.join(MICRO_ROS_COMPONENTS, component_code, "micro_ros_espidf_component")
         shutil.copytree(base_dest, component_dest)
 
-        with open(os.path.join(component_dest, "colcon.meta"), "r+"):
-            pass
+        with open(os.path.join(component_dest, "colcon.meta"), "r+") as f:
+            text = f.read()
 
-    
-    os.makedirs(project_component_path, exist_ok=True)
+            for pattern, new_val in replacements.items():
+                text = re.sub(pattern, fr"\g<1>{new_val}", text)
+            f.seek(0)
+            f.write(text)
+            f.truncate()
+
+        config_obj[component_code] = True
+
+        json_file.seek(0)
+        json.dump(config_obj, json_file, indent=4)
+        json_file.truncate()
+
     os.symlink(component_dest, project_component_path)
 
 

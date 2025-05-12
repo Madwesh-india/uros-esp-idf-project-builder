@@ -106,8 +106,8 @@ void app_main(void)
         "uros_task",                       // Name of the task.
         CONFIG_MICRO_ROS_APP_STACK,        // Stack size.
         NULL,                              // Parameter.
-        CONFIG_MICRO_ROS_APP_TASK_PRIO,      // Priority.
-        NULL,                              // Task handle (not used).
+        CONFIG_MICRO_ROS_APP_TASK_PRIO,    // Priority.
+        NULL                               // Task handle (not used).
     );
 
     // <||Tasks||>
