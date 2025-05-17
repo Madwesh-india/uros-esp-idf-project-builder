@@ -91,8 +91,15 @@ def main():
     client_count = int(input("Client Count: "))
     max_history = int(input("Max History: "))
     max_timer = int(input("Max Timers: "))
+
+    mode = int(input(
+"""1) UDP (WiFi)
+2) Custom (Serial)
+Select Mode (1 or 2): 
+"""))
     
     replacements = {
+        r"(-DRMW_UXRCE_TRANSPORT=)(\w+)":                  "custom" if mode == 2 else "udp",
         r"(-DRMW_UXRCE_MAX_PUBLISHERS=)\d+":               publisher_count,
         r"(-DRMW_UXRCE_MAX_SUBSCRIPTIONS=)\d+":            subscriber_count,
         r"(-DRMW_UXRCE_MAX_SERVICES=)\d+":                 service_count,
@@ -105,12 +112,10 @@ def main():
         r"(-DERTPS_MAX_CLIENTS=)\d+":                      client_count,
         r"(-DERTPS_MAX_HISTORY=)\d+":                      max_history,
     }
+    
+    if (mode == 2):
+        shutil.copytree(os.path.join(MICRO_ROS_COMPONENTS, "serial_utils"), os.path.join(project_path, "main"))
 
-    mode = int(input(
-"""1) UDP (WiFi)
-2) Custom (Serial)
-Select Mode (1 or 2): 
-"""))
     
     component_code = f"micro_{mode}{publisher_count}{subscriber_count}{service_count}{client_count}{max_history}"
     project_component_path = os.path.join(project_path, "components", "micro_ros_espidf_component")
@@ -146,6 +151,8 @@ Select Mode (1 or 2):
     os.symlink(component_dest, project_component_path)
 
     json_file.close()
+
+    
 
     publisher_names = []
     publisher_Types = []
