@@ -15,6 +15,10 @@ UDP = 1
 CUSTOM = 2
 
 def main():
+    if not os.path.exists(CONFIG_FILE):
+        with open(CONFIG_FILE, "w") as f:
+            json.dump({}, f, indent=4)
+
     json_file = open(CONFIG_FILE, "r+")
 
     try:
@@ -44,8 +48,9 @@ def main():
         with open(GITIGNORE_PATH, "a+") as gitignore:
             gitignore.seek(0)
             existing = gitignore.read().splitlines()
-            if base_dest not in existing:
-                gitignore.write(f"{base_dest}/\n")
+            base_dest_ignore = base_dest[2:]
+            if base_dest_ignore not in existing:
+                gitignore.write(f"{base_dest_ignore}/\n")
 
     json_file.seek(0)
     json.dump(config_obj, json_file, indent=4)
@@ -85,6 +90,7 @@ def main():
     service_count = int(input("Service Count: "))
     client_count = int(input("Client Count: "))
     max_history = int(input("Max History: "))
+    max_timer = int(input("Max Timers: "))
     
     replacements = {
         r"(-DRMW_UXRCE_MAX_PUBLISHERS=)\d+":               publisher_count,
@@ -117,8 +123,10 @@ Select Mode (1 or 2):
         with open(GITIGNORE_PATH, "a+") as gitignore:
             gitignore.seek(0)
             existing = gitignore.read().splitlines()
-            if rel_component_dest not in existing:
-                gitignore.write(f"{rel_component_dest}/\n")
+
+            rel_component_dest_ignore = rel_component_dest[2:]
+            if rel_component_dest_ignore not in existing:
+                gitignore.write(f"{rel_component_dest_ignore}/\n")
 
         with open(os.path.join(component_dest, "colcon.meta"), "r+") as f:
             text = f.read()
@@ -137,8 +145,13 @@ Select Mode (1 or 2):
 
     os.symlink(component_dest, project_component_path)
 
-
     json_file.close()
+
+    publisher_names = []
+    publisher_Types = []
+
+    for i in range(int(publisher_count)):
+        publisher_names.append(input(f"Publisher{i} Name: "))
 
 
 if __name__ == "__main__":
