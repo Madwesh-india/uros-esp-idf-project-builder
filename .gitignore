@@ -1,5 +1,6 @@
 .vscode/settings.json
 uros_components_config.json
 uros_components/base/micro_ros_espidf_component/
-uros_components/micro_112111/micro_ros_espidf_component/
-uros_components/micro_110000/micro_ros_espidf_component/
+uros_components/micro_111111/micro_ros_espidf_component/
+uros_components/micro_140000/micro_ros_espidf_component/
+uros_components/micro_114000/micro_ros_espidf_component/

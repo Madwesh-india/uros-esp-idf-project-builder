@@ -170,13 +170,22 @@ def prompt_publishers(interface_graph, details):
     pkg_list = [k for k,v in interface_graph.items() if v.get('msg')]
     for idx in range(details['publisher_count']):
         name = input(f" Publisher {idx+1} name: ")
-        for i,pkg in enumerate(pkg_list,1): print(f"  {i}) {pkg}")
-        pidx = int(input("Select package: "))-1
+        for i, pkg in enumerate(pkg_list, 1):
+            print(f"  {i}) {pkg}")
+        pidx = int(input("Select package: ")) - 1
         pkg = pkg_list[pidx]
+
         msgs = list(interface_graph[pkg]['msg'].keys())
-        for i,m in enumerate(msgs,1): print(f"    {i}) {m}")
-        midx = int(input("Select message type: "))-1
-        pubs.append((name, f"{pkg}/msg/{msgs[midx]}"))
+        for i, m in enumerate(msgs, 1):
+            print(f"    {i}) {m}")
+        midx = int(input("Select message type: ")) - 1
+
+        qos = None
+        while qos not in ('b', 'r'):
+            qos = input("QoS (b = BestEffort, r = Reliable): ").lower()
+
+        qos_str = 'BestEffort' if qos == 'b' else 'Reliable'
+        pubs.append((name, f"{pkg}/msg/{msgs[midx]}", qos_str))
     return pubs
 
 
@@ -186,14 +195,24 @@ def prompt_subscriptions(interface_graph, details):
     pkg_list = [k for k,v in interface_graph.items() if v.get('msg')]
     for idx in range(details['subscriber_count']):
         name = input(f" Subscription {idx+1} name: ")
-        for i,pkg in enumerate(pkg_list,1): print(f"  {i}) {pkg}")
-        pidx = int(input("Select package: "))-1
+        for i, pkg in enumerate(pkg_list, 1):
+            print(f"  {i}) {pkg}")
+        pidx = int(input("Select package: ")) - 1
         pkg = pkg_list[pidx]
+
         msgs = list(interface_graph[pkg]['msg'].keys())
-        for i,m in enumerate(msgs,1): print(f"    {i}) {m}")
-        midx = int(input("Select message type: "))-1
-        sub.append((name, f"{pkg}/msg/{msgs[midx]}"))
+        for i, m in enumerate(msgs, 1):
+            print(f"    {i}) {m}")
+        midx = int(input("Select message type: ")) - 1
+
+        qos = None
+        while qos not in ('b', 'r'):
+            qos = input("QoS (b = BestEffort, r = Reliable): ").lower()
+
+        qos_str = 'BestEffort' if qos == 'b' else 'Reliable'
+        sub.append((name, f"{pkg}/msg/{msgs[midx]}", qos_str))
     return sub
+
 
 def prompt_services(interface_graph, details):
     srvs = []
@@ -291,11 +310,36 @@ def main():
     print("\nConfigured timers:", timers)
 
     requied_imports = []
-    variable_declarations = []
+    handler_objects = {
+        "rcl_publisher_t": [],
+        "rcl_subscription_t": [],
+    }
+    data_variable_declarations = {}
 
-    for imports in [*publishers, *subscriptions, *services, *clients]:
+    for mode, obj in zip(handler_objects.keys(), [publishers, subscriptions]):
+        for sp_name, sp_type, sp_qos in obj:
+            requied_imports.append(transform_path(sp_type))
+            
+            type_variable = transform_variable(sp_type) 
+            
+            if type_variable not in data_variable_declarations:
+                data_variable_declarations[type_variable] = [f"{sp_name}_data"]
+            else:
+                data_variable_declarations[type_variable].append(f"{sp_name}_data")
+            
+            handler_objects[mode].append(f"{sp_name}_{mode.removeprefix('rcl_').removesuffix('_t')}")
+    
+    print(handler_objects)
+
+    for imports in [*services, *clients]:
         requied_imports.append(transform_path(imports[1]))
-        print(transform_variable(imports[1]))
+        
+        type_variable = transform_variable(imports[1]) 
+        
+        if type_variable not in data_variable_declarations:
+            data_variable_declarations[type_variable] = [f"{imports[0]}_data"]
+        else:
+            data_variable_declarations[type_variable].append(f"{imports[0]}_data")
 
     
 
