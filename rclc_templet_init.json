@@ -1,0 +1,6 @@
+{
+    "rcl_publisher_t": "    RCCHECK(rclc_publisher_init_<||Reliability||>(\n        &<||HandlerObject||>,\n        &node,\n        ROSIDL_GET_MSG_TYPE_SUPPORT(<||TopicType||>),\n        \"<||TopicName||>\"));",
+    "rcl_subscription_t": "    RCCHECK(rclc_subscription_init_<||Reliability||>(\n        &<||HandlerObject||>,\n        &node,\n        ROSIDL_GET_MSG_TYPE_SUPPORT(<||TopicTypeComa||>),\n        \"<||TopicName||>\"));",
+    "handler_subscription": "    RCCHECK(rclc_executor_add_subscription(&executor, &<||HandlerObject||>, &<||MsgName||>, &<||CallBackName||>, ON_NEW_DATA));",
+    "call_back_subscription": "void <||CallBackName||>(const void * msgin) {\n    const <||TopicType||> * msg = (const <||TopicType||> *)msgin;\n}"
+}
