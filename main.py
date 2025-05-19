@@ -295,6 +295,7 @@ def main():
 
     for imports in [*publishers, *subscriptions, *services, *clients]:
         requied_imports.append(transform_path(imports[1]))
+        print(transform_variable(imports[1]))
 
     
 
