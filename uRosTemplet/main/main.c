@@ -68,7 +68,8 @@ void micro_ros_task(void * arg) {
     /* Create a micro-ROS node */
     rcl_node_t node;
     RCCHECK(rclc_node_init_default(&node, "<||Nodename||>", "<||Namespace||>", &support));
-
+    
+    // <||InitializingThings||>
 
     rclc_executor_t executor;
     RCCHECK(rclc_executor_init(&executor, &support.context, 1, &allocator));

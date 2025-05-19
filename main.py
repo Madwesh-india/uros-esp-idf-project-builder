@@ -239,6 +239,25 @@ def prompt_timers(details):
         timers.append((name, rate))
     return timers
 
+def transform_path(input_str):
+    parts = input_str.strip().split('/')
+    if len(parts) != 3:
+        raise ValueError("Input must be in the form 'value1/value2/value3'")
+
+    head, mid, tail = parts
+
+    # Convert tail to snake_case with leading capitals converted to _x
+    tail_snake = re.sub(r'(?<!^)([A-Z])', r'_\1', tail).lower()
+
+    return f"{head}/{mid}/{tail_snake}.h"
+
+def transform_variable(input_str):
+    parts = input_str.strip().split('/')
+    if len(parts) != 3:
+        raise ValueError("Input must be in the form 'value1/value2/value3'")
+
+    head, mid, tail = parts
+    return f"{head}__{mid}__{tail}"
 
 def main():
     config = load_or_init_config()
@@ -270,6 +289,14 @@ def main():
     print("\nConfigured services:", services)
     print("\nConfigured clients:", clients)
     print("\nConfigured timers:", timers)
+
+    requied_imports = []
+    variable_declarations = []
+
+    for imports in [*publishers, *subscriptions, *services, *clients]:
+        requied_imports.append(transform_path(imports[1]))
+
+    
 
 
 if __name__ == '__main__':
