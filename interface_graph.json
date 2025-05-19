@@ -1,0 +1,4765 @@
+{
+  "nav_msgs": {
+    "msg": {
+      "MapMetaData": {
+        "map_load_time": {
+          "type": "builtin_interfaces/Time",
+          "array": false
+        },
+        "resolution": {
+          "type": "float32",
+          "array": false
+        },
+        "width": {
+          "type": "uint32",
+          "array": false
+        },
+        "height": {
+          "type": "uint32",
+          "array": false
+        },
+        "origin": {
+          "type": "geometry_msgs/Pose",
+          "array": false
+        }
+      },
+      "Path": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "poses": {
+          "type": "geometry_msgs/PoseStamped",
+          "array": true
+        }
+      },
+      "OccupancyGrid": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "info": {
+          "type": "MapMetaData",
+          "array": false,
+          "fields": {
+            "map_load_time": {
+              "type": "builtin_interfaces/Time",
+              "array": false
+            },
+            "resolution": {
+              "type": "float32",
+              "array": false
+            },
+            "width": {
+              "type": "uint32",
+              "array": false
+            },
+            "height": {
+              "type": "uint32",
+              "array": false
+            },
+            "origin": {
+              "type": "geometry_msgs/Pose",
+              "array": false
+            }
+          }
+        },
+        "data": {
+          "type": "int8",
+          "array": true
+        }
+      },
+      "GridCells": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "cell_width": {
+          "type": "float32",
+          "array": false
+        },
+        "cell_height": {
+          "type": "float32",
+          "array": false
+        },
+        "cells": {
+          "type": "geometry_msgs/Point",
+          "array": true
+        }
+      },
+      "Odometry": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "child_frame_id": {
+          "type": "string",
+          "array": false
+        },
+        "pose": {
+          "type": "geometry_msgs/PoseWithCovariance",
+          "array": false
+        },
+        "twist": {
+          "type": "geometry_msgs/TwistWithCovariance",
+          "array": false
+        }
+      }
+    },
+    "srv": {
+      "SetMap": {
+        "request": {
+          "map": {
+            "type": "nav_msgs/OccupancyGrid",
+            "array": false
+          },
+          "initial_pose": {
+            "type": "geometry_msgs/PoseWithCovarianceStamped",
+            "array": false
+          }
+        },
+        "response": {
+          "success": {
+            "type": "bool",
+            "array": false
+          }
+        }
+      },
+      "GetPlan": {
+        "request": {
+          "start": {
+            "type": "geometry_msgs/PoseStamped",
+            "array": false
+          },
+          "goal": {
+            "type": "geometry_msgs/PoseStamped",
+            "array": false
+          },
+          "tolerance": {
+            "type": "float32",
+            "array": false
+          }
+        },
+        "response": {
+          "plan": {
+            "type": "Path",
+            "array": false,
+            "fields": {
+              "header": {
+                "type": "std_msgs/Header",
+                "array": false
+              },
+              "poses": {
+                "type": "geometry_msgs/PoseStamped",
+                "array": true
+              }
+            }
+          }
+        }
+      },
+      "GetMap": {
+        "request": {},
+        "response": {
+          "map": {
+            "type": "OccupancyGrid",
+            "array": false,
+            "fields": {
+              "header": {
+                "type": "std_msgs/Header",
+                "array": false
+              },
+              "info": {
+                "type": "MapMetaData",
+                "array": false,
+                "fields": {
+                  "map_load_time": {
+                    "type": "builtin_interfaces/Time",
+                    "array": false
+                  },
+                  "resolution": {
+                    "type": "float32",
+                    "array": false
+                  },
+                  "width": {
+                    "type": "uint32",
+                    "array": false
+                  },
+                  "height": {
+                    "type": "uint32",
+                    "array": false
+                  },
+                  "origin": {
+                    "type": "geometry_msgs/Pose",
+                    "array": false
+                  }
+                }
+              },
+              "data": {
+                "type": "int8",
+                "array": true
+              }
+            }
+          }
+        }
+      },
+      "LoadMap": {
+        "request": {
+          "map_url": {
+            "type": "string",
+            "array": false
+          }
+        },
+        "response": {
+          "RESULT_SUCCESS": {
+            "type": "uint8",
+            "array": false
+          },
+          "RESULT_MAP_DOES_NOT_EXIST": {
+            "type": "uint8",
+            "array": false
+          },
+          "RESULT_INVALID_MAP_DATA": {
+            "type": "uint8",
+            "array": false
+          },
+          "RESULT_INVALID_MAP_METADATA": {
+            "type": "uint8",
+            "array": false
+          },
+          "RESULT_UNDEFINED_FAILURE": {
+            "type": "uint8",
+            "array": false
+          },
+          "map": {
+            "type": "nav_msgs/OccupancyGrid",
+            "array": false
+          },
+          "result": {
+            "type": "uint8",
+            "array": false
+          }
+        }
+      }
+    },
+    "action": {}
+  },
+  "std_srvs": {
+    "msg": {},
+    "srv": {
+      "Empty": {
+        "request": {},
+        "response": {}
+      },
+      "SetBool": {
+        "request": {
+          "data": {
+            "type": "bool",
+            "array": false
+          }
+        },
+        "response": {
+          "success": {
+            "type": "bool",
+            "array": false
+          },
+          "message": {
+            "type": "string",
+            "array": false
+          }
+        }
+      },
+      "Trigger": {
+        "request": {},
+        "response": {
+          "success": {
+            "type": "bool",
+            "array": false
+          },
+          "message": {
+            "type": "string",
+            "array": false
+          }
+        }
+      }
+    },
+    "action": {}
+  },
+  "geometry_msgs": {
+    "msg": {
+      "Point32": {
+        "x": {
+          "type": "float32",
+          "array": false
+        },
+        "y": {
+          "type": "float32",
+          "array": false
+        },
+        "z": {
+          "type": "float32",
+          "array": false
+        }
+      },
+      "TransformStamped": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "child_frame_id": {
+          "type": "string",
+          "array": false
+        },
+        "transform": {
+          "type": "Transform",
+          "array": false,
+          "fields": {
+            "translation": {
+              "type": "Vector3",
+              "array": false,
+              "fields": {
+                "x": {
+                  "type": "float64",
+                  "array": false
+                },
+                "y": {
+                  "type": "float64",
+                  "array": false
+                },
+                "z": {
+                  "type": "float64",
+                  "array": false
+                }
+              }
+            },
+            "rotation": {
+              "type": "Quaternion",
+              "array": false
+            }
+          }
+        }
+      },
+      "AccelStamped": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "accel": {
+          "type": "Accel",
+          "array": false,
+          "fields": {
+            "linear": {
+              "type": "Vector3",
+              "array": false,
+              "fields": {
+                "x": {
+                  "type": "float64",
+                  "array": false
+                },
+                "y": {
+                  "type": "float64",
+                  "array": false
+                },
+                "z": {
+                  "type": "float64",
+                  "array": false
+                }
+              }
+            },
+            "angular": {
+              "type": "Vector3",
+              "array": false,
+              "fields": {
+                "x": {
+                  "type": "float64",
+                  "array": false
+                },
+                "y": {
+                  "type": "float64",
+                  "array": false
+                },
+                "z": {
+                  "type": "float64",
+                  "array": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "Vector3": {
+        "x": {
+          "type": "float64",
+          "array": false
+        },
+        "y": {
+          "type": "float64",
+          "array": false
+        },
+        "z": {
+          "type": "float64",
+          "array": false
+        }
+      },
+      "Accel": {
+        "linear": {
+          "type": "Vector3",
+          "array": false,
+          "fields": {
+            "x": {
+              "type": "float64",
+              "array": false
+            },
+            "y": {
+              "type": "float64",
+              "array": false
+            },
+            "z": {
+              "type": "float64",
+              "array": false
+            }
+          }
+        },
+        "angular": {
+          "type": "Vector3",
+          "array": false,
+          "fields": {
+            "x": {
+              "type": "float64",
+              "array": false
+            },
+            "y": {
+              "type": "float64",
+              "array": false
+            },
+            "z": {
+              "type": "float64",
+              "array": false
+            }
+          }
+        }
+      },
+      "Wrench": {
+        "force": {
+          "type": "Vector3",
+          "array": false,
+          "fields": {
+            "x": {
+              "type": "float64",
+              "array": false
+            },
+            "y": {
+              "type": "float64",
+              "array": false
+            },
+            "z": {
+              "type": "float64",
+              "array": false
+            }
+          }
+        },
+        "torque": {
+          "type": "Vector3",
+          "array": false,
+          "fields": {
+            "x": {
+              "type": "float64",
+              "array": false
+            },
+            "y": {
+              "type": "float64",
+              "array": false
+            },
+            "z": {
+              "type": "float64",
+              "array": false
+            }
+          }
+        }
+      },
+      "Twist": {
+        "linear": {
+          "type": "Vector3",
+          "array": false,
+          "fields": {
+            "x": {
+              "type": "float64",
+              "array": false
+            },
+            "y": {
+              "type": "float64",
+              "array": false
+            },
+            "z": {
+              "type": "float64",
+              "array": false
+            }
+          }
+        },
+        "angular": {
+          "type": "Vector3",
+          "array": false,
+          "fields": {
+            "x": {
+              "type": "float64",
+              "array": false
+            },
+            "y": {
+              "type": "float64",
+              "array": false
+            },
+            "z": {
+              "type": "float64",
+              "array": false
+            }
+          }
+        }
+      },
+      "AccelWithCovariance": {
+        "accel": {
+          "type": "Accel",
+          "array": false,
+          "fields": {
+            "linear": {
+              "type": "Vector3",
+              "array": false,
+              "fields": {
+                "x": {
+                  "type": "float64",
+                  "array": false
+                },
+                "y": {
+                  "type": "float64",
+                  "array": false
+                },
+                "z": {
+                  "type": "float64",
+                  "array": false
+                }
+              }
+            },
+            "angular": {
+              "type": "Vector3",
+              "array": false,
+              "fields": {
+                "x": {
+                  "type": "float64",
+                  "array": false
+                },
+                "y": {
+                  "type": "float64",
+                  "array": false
+                },
+                "z": {
+                  "type": "float64",
+                  "array": false
+                }
+              }
+            }
+          }
+        },
+        "covariance": {
+          "type": "float64[36]",
+          "array": false
+        }
+      },
+      "Polygon": {
+        "points": {
+          "type": "Point32",
+          "array": true,
+          "fields": {
+            "x": {
+              "type": "float32",
+              "array": false
+            },
+            "y": {
+              "type": "float32",
+              "array": false
+            },
+            "z": {
+              "type": "float32",
+              "array": false
+            }
+          }
+        }
+      },
+      "PoseWithCovariance": {
+        "pose": {
+          "type": "Pose",
+          "array": false,
+          "fields": {
+            "position": {
+              "type": "Point",
+              "array": false
+            },
+            "orientation": {
+              "type": "Quaternion",
+              "array": false
+            }
+          }
+        },
+        "covariance": {
+          "type": "float64[36]",
+          "array": false
+        }
+      },
+      "WrenchStamped": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "wrench": {
+          "type": "Wrench",
+          "array": false,
+          "fields": {
+            "force": {
+              "type": "Vector3",
+              "array": false,
+              "fields": {
+                "x": {
+                  "type": "float64",
+                  "array": false
+                },
+                "y": {
+                  "type": "float64",
+                  "array": false
+                },
+                "z": {
+                  "type": "float64",
+                  "array": false
+                }
+              }
+            },
+            "torque": {
+              "type": "Vector3",
+              "array": false,
+              "fields": {
+                "x": {
+                  "type": "float64",
+                  "array": false
+                },
+                "y": {
+                  "type": "float64",
+                  "array": false
+                },
+                "z": {
+                  "type": "float64",
+                  "array": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "Pose": {
+        "position": {
+          "type": "Point",
+          "array": false,
+          "fields": {
+            "x": {
+              "type": "float64",
+              "array": false
+            },
+            "y": {
+              "type": "float64",
+              "array": false
+            },
+            "z": {
+              "type": "float64",
+              "array": false
+            }
+          }
+        },
+        "orientation": {
+          "type": "Quaternion",
+          "array": false,
+          "fields": {
+            "x": {
+              "type": "float64",
+              "array": false
+            },
+            "y": {
+              "type": "float64",
+              "array": false
+            },
+            "z": {
+              "type": "float64",
+              "array": false
+            },
+            "w": {
+              "type": "float64",
+              "array": false
+            }
+          }
+        }
+      },
+      "Pose2D": {
+        "x": {
+          "type": "float64",
+          "array": false
+        },
+        "y": {
+          "type": "float64",
+          "array": false
+        },
+        "theta": {
+          "type": "float64",
+          "array": false
+        }
+      },
+      "Vector3Stamped": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "vector": {
+          "type": "Vector3",
+          "array": false,
+          "fields": {
+            "x": {
+              "type": "float64",
+              "array": false
+            },
+            "y": {
+              "type": "float64",
+              "array": false
+            },
+            "z": {
+              "type": "float64",
+              "array": false
+            }
+          }
+        }
+      },
+      "PolygonStamped": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "polygon": {
+          "type": "Polygon",
+          "array": false,
+          "fields": {
+            "points": {
+              "type": "Point32",
+              "array": true,
+              "fields": {
+                "x": {
+                  "type": "float32",
+                  "array": false
+                },
+                "y": {
+                  "type": "float32",
+                  "array": false
+                },
+                "z": {
+                  "type": "float32",
+                  "array": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "Transform": {
+        "translation": {
+          "type": "Vector3",
+          "array": false,
+          "fields": {
+            "x": {
+              "type": "float64",
+              "array": false
+            },
+            "y": {
+              "type": "float64",
+              "array": false
+            },
+            "z": {
+              "type": "float64",
+              "array": false
+            }
+          }
+        },
+        "rotation": {
+          "type": "Quaternion",
+          "array": false,
+          "fields": {
+            "x": {
+              "type": "float64",
+              "array": false
+            },
+            "y": {
+              "type": "float64",
+              "array": false
+            },
+            "z": {
+              "type": "float64",
+              "array": false
+            },
+            "w": {
+              "type": "float64",
+              "array": false
+            }
+          }
+        }
+      },
+      "VelocityStamped": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "body_frame_id": {
+          "type": "string",
+          "array": false
+        },
+        "reference_frame_id": {
+          "type": "string",
+          "array": false
+        },
+        "velocity": {
+          "type": "Twist",
+          "array": false,
+          "fields": {
+            "linear": {
+              "type": "Vector3",
+              "array": false,
+              "fields": {
+                "x": {
+                  "type": "float64",
+                  "array": false
+                },
+                "y": {
+                  "type": "float64",
+                  "array": false
+                },
+                "z": {
+                  "type": "float64",
+                  "array": false
+                }
+              }
+            },
+            "angular": {
+              "type": "Vector3",
+              "array": false,
+              "fields": {
+                "x": {
+                  "type": "float64",
+                  "array": false
+                },
+                "y": {
+                  "type": "float64",
+                  "array": false
+                },
+                "z": {
+                  "type": "float64",
+                  "array": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "PointStamped": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "point": {
+          "type": "Point",
+          "array": false,
+          "fields": {
+            "x": {
+              "type": "float64",
+              "array": false
+            },
+            "y": {
+              "type": "float64",
+              "array": false
+            },
+            "z": {
+              "type": "float64",
+              "array": false
+            }
+          }
+        }
+      },
+      "AccelWithCovarianceStamped": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "accel": {
+          "type": "AccelWithCovariance",
+          "array": false,
+          "fields": {
+            "accel": {
+              "type": "Accel",
+              "array": false,
+              "fields": {
+                "linear": {
+                  "type": "Vector3",
+                  "array": false,
+                  "fields": {
+                    "x": {
+                      "type": "float64",
+                      "array": false
+                    },
+                    "y": {
+                      "type": "float64",
+                      "array": false
+                    },
+                    "z": {
+                      "type": "float64",
+                      "array": false
+                    }
+                  }
+                },
+                "angular": {
+                  "type": "Vector3",
+                  "array": false,
+                  "fields": {
+                    "x": {
+                      "type": "float64",
+                      "array": false
+                    },
+                    "y": {
+                      "type": "float64",
+                      "array": false
+                    },
+                    "z": {
+                      "type": "float64",
+                      "array": false
+                    }
+                  }
+                }
+              }
+            },
+            "covariance": {
+              "type": "float64[36]",
+              "array": false
+            }
+          }
+        }
+      },
+      "Quaternion": {
+        "x": {
+          "type": "float64",
+          "array": false
+        },
+        "y": {
+          "type": "float64",
+          "array": false
+        },
+        "z": {
+          "type": "float64",
+          "array": false
+        },
+        "w": {
+          "type": "float64",
+          "array": false
+        }
+      },
+      "TwistStamped": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "twist": {
+          "type": "Twist",
+          "array": false,
+          "fields": {
+            "linear": {
+              "type": "Vector3",
+              "array": false,
+              "fields": {
+                "x": {
+                  "type": "float64",
+                  "array": false
+                },
+                "y": {
+                  "type": "float64",
+                  "array": false
+                },
+                "z": {
+                  "type": "float64",
+                  "array": false
+                }
+              }
+            },
+            "angular": {
+              "type": "Vector3",
+              "array": false,
+              "fields": {
+                "x": {
+                  "type": "float64",
+                  "array": false
+                },
+                "y": {
+                  "type": "float64",
+                  "array": false
+                },
+                "z": {
+                  "type": "float64",
+                  "array": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "PoseWithCovarianceStamped": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "pose": {
+          "type": "PoseWithCovariance",
+          "array": false,
+          "fields": {
+            "pose": {
+              "type": "Pose",
+              "array": false
+            },
+            "covariance": {
+              "type": "float64[36]",
+              "array": false
+            }
+          }
+        }
+      },
+      "TwistWithCovarianceStamped": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "twist": {
+          "type": "TwistWithCovariance",
+          "array": false,
+          "fields": {
+            "twist": {
+              "type": "Twist",
+              "array": false,
+              "fields": {
+                "linear": {
+                  "type": "Vector3",
+                  "array": false,
+                  "fields": {
+                    "x": {
+                      "type": "float64",
+                      "array": false
+                    },
+                    "y": {
+                      "type": "float64",
+                      "array": false
+                    },
+                    "z": {
+                      "type": "float64",
+                      "array": false
+                    }
+                  }
+                },
+                "angular": {
+                  "type": "Vector3",
+                  "array": false,
+                  "fields": {
+                    "x": {
+                      "type": "float64",
+                      "array": false
+                    },
+                    "y": {
+                      "type": "float64",
+                      "array": false
+                    },
+                    "z": {
+                      "type": "float64",
+                      "array": false
+                    }
+                  }
+                }
+              }
+            },
+            "covariance": {
+              "type": "float64[36]",
+              "array": false
+            }
+          }
+        }
+      },
+      "PoseArray": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "poses": {
+          "type": "Pose",
+          "array": true,
+          "fields": {
+            "position": {
+              "type": "Point",
+              "array": false
+            },
+            "orientation": {
+              "type": "Quaternion",
+              "array": false
+            }
+          }
+        }
+      },
+      "Inertia": {
+        "m": {
+          "type": "float64",
+          "array": false
+        },
+        "com": {
+          "type": "geometry_msgs/Vector3",
+          "array": false
+        },
+        "ixx": {
+          "type": "float64",
+          "array": false
+        },
+        "ixy": {
+          "type": "float64",
+          "array": false
+        },
+        "ixz": {
+          "type": "float64",
+          "array": false
+        },
+        "iyy": {
+          "type": "float64",
+          "array": false
+        },
+        "iyz": {
+          "type": "float64",
+          "array": false
+        },
+        "izz": {
+          "type": "float64",
+          "array": false
+        }
+      },
+      "Point": {
+        "x": {
+          "type": "float64",
+          "array": false
+        },
+        "y": {
+          "type": "float64",
+          "array": false
+        },
+        "z": {
+          "type": "float64",
+          "array": false
+        }
+      },
+      "PoseStamped": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "pose": {
+          "type": "Pose",
+          "array": false,
+          "fields": {
+            "position": {
+              "type": "Point",
+              "array": false
+            },
+            "orientation": {
+              "type": "Quaternion",
+              "array": false
+            }
+          }
+        }
+      },
+      "InertiaStamped": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "inertia": {
+          "type": "Inertia",
+          "array": false,
+          "fields": {
+            "m": {
+              "type": "float64",
+              "array": false
+            },
+            "com": {
+              "type": "geometry_msgs/Vector3",
+              "array": false
+            },
+            "ixx": {
+              "type": "float64",
+              "array": false
+            },
+            "ixy": {
+              "type": "float64",
+              "array": false
+            },
+            "ixz": {
+              "type": "float64",
+              "array": false
+            },
+            "iyy": {
+              "type": "float64",
+              "array": false
+            },
+            "iyz": {
+              "type": "float64",
+              "array": false
+            },
+            "izz": {
+              "type": "float64",
+              "array": false
+            }
+          }
+        }
+      },
+      "TwistWithCovariance": {
+        "twist": {
+          "type": "Twist",
+          "array": false,
+          "fields": {
+            "linear": {
+              "type": "Vector3",
+              "array": false,
+              "fields": {
+                "x": {
+                  "type": "float64",
+                  "array": false
+                },
+                "y": {
+                  "type": "float64",
+                  "array": false
+                },
+                "z": {
+                  "type": "float64",
+                  "array": false
+                }
+              }
+            },
+            "angular": {
+              "type": "Vector3",
+              "array": false,
+              "fields": {
+                "x": {
+                  "type": "float64",
+                  "array": false
+                },
+                "y": {
+                  "type": "float64",
+                  "array": false
+                },
+                "z": {
+                  "type": "float64",
+                  "array": false
+                }
+              }
+            }
+          }
+        },
+        "covariance": {
+          "type": "float64[36]",
+          "array": false
+        }
+      },
+      "QuaternionStamped": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "quaternion": {
+          "type": "Quaternion",
+          "array": false,
+          "fields": {
+            "x": {
+              "type": "float64",
+              "array": false
+            },
+            "y": {
+              "type": "float64",
+              "array": false
+            },
+            "z": {
+              "type": "float64",
+              "array": false
+            },
+            "w": {
+              "type": "float64",
+              "array": false
+            }
+          }
+        }
+      }
+    },
+    "srv": {},
+    "action": {}
+  },
+  "shape_msgs": {
+    "msg": {
+      "Plane": {
+        "coef": {
+          "type": "float64[4]",
+          "array": false
+        }
+      },
+      "MeshTriangle": {
+        "vertex_indices": {
+          "type": "uint32[3]",
+          "array": false
+        }
+      },
+      "SolidPrimitive": {
+        "BOX": {
+          "type": "uint8",
+          "array": false
+        },
+        "SPHERE": {
+          "type": "uint8",
+          "array": false
+        },
+        "CYLINDER": {
+          "type": "uint8",
+          "array": false
+        },
+        "CONE": {
+          "type": "uint8",
+          "array": false
+        },
+        "PRISM": {
+          "type": "uint8",
+          "array": false
+        },
+        "type": {
+          "type": "uint8",
+          "array": false
+        },
+        "dimensions": {
+          "type": "float64",
+          "array": true
+        },
+        "BOX_X": {
+          "type": "uint8",
+          "array": false
+        },
+        "BOX_Y": {
+          "type": "uint8",
+          "array": false
+        },
+        "BOX_Z": {
+          "type": "uint8",
+          "array": false
+        },
+        "SPHERE_RADIUS": {
+          "type": "uint8",
+          "array": false
+        },
+        "CYLINDER_HEIGHT": {
+          "type": "uint8",
+          "array": false
+        },
+        "CYLINDER_RADIUS": {
+          "type": "uint8",
+          "array": false
+        },
+        "CONE_HEIGHT": {
+          "type": "uint8",
+          "array": false
+        },
+        "CONE_RADIUS": {
+          "type": "uint8",
+          "array": false
+        },
+        "PRISM_HEIGHT": {
+          "type": "uint8",
+          "array": false
+        },
+        "polygon": {
+          "type": "geometry_msgs/Polygon",
+          "array": false
+        }
+      },
+      "Mesh": {
+        "triangles": {
+          "type": "MeshTriangle",
+          "array": true,
+          "fields": {
+            "vertex_indices": {
+              "type": "uint32[3]",
+              "array": false
+            }
+          }
+        },
+        "vertices": {
+          "type": "geometry_msgs/Point",
+          "array": true
+        }
+      }
+    },
+    "srv": {},
+    "action": {}
+  },
+  "trajectory_msgs": {
+    "msg": {
+      "JointTrajectory": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "joint_names": {
+          "type": "string",
+          "array": true
+        },
+        "points": {
+          "type": "JointTrajectoryPoint",
+          "array": true,
+          "fields": {
+            "positions": {
+              "type": "float64",
+              "array": true
+            },
+            "velocities": {
+              "type": "float64",
+              "array": true
+            },
+            "accelerations": {
+              "type": "float64",
+              "array": true
+            },
+            "effort": {
+              "type": "float64",
+              "array": true
+            },
+            "time_from_start": {
+              "type": "builtin_interfaces/Duration",
+              "array": false
+            }
+          }
+        }
+      },
+      "JointTrajectoryPoint": {
+        "positions": {
+          "type": "float64",
+          "array": true
+        },
+        "velocities": {
+          "type": "float64",
+          "array": true
+        },
+        "accelerations": {
+          "type": "float64",
+          "array": true
+        },
+        "effort": {
+          "type": "float64",
+          "array": true
+        },
+        "time_from_start": {
+          "type": "builtin_interfaces/Duration",
+          "array": false
+        }
+      },
+      "MultiDOFJointTrajectory": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "joint_names": {
+          "type": "string",
+          "array": true
+        },
+        "points": {
+          "type": "MultiDOFJointTrajectoryPoint",
+          "array": true,
+          "fields": {
+            "transforms": {
+              "type": "geometry_msgs/Transform",
+              "array": true
+            },
+            "velocities": {
+              "type": "geometry_msgs/Twist",
+              "array": true
+            },
+            "accelerations": {
+              "type": "geometry_msgs/Twist",
+              "array": true
+            },
+            "time_from_start": {
+              "type": "builtin_interfaces/Duration",
+              "array": false
+            }
+          }
+        }
+      },
+      "MultiDOFJointTrajectoryPoint": {
+        "transforms": {
+          "type": "geometry_msgs/Transform",
+          "array": true
+        },
+        "velocities": {
+          "type": "geometry_msgs/Twist",
+          "array": true
+        },
+        "accelerations": {
+          "type": "geometry_msgs/Twist",
+          "array": true
+        },
+        "time_from_start": {
+          "type": "builtin_interfaces/Duration",
+          "array": false
+        }
+      }
+    },
+    "srv": {},
+    "action": {}
+  },
+  "stereo_msgs": {
+    "msg": {
+      "DisparityImage": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "image": {
+          "type": "sensor_msgs/Image",
+          "array": false
+        },
+        "f": {
+          "type": "float32",
+          "array": false
+        },
+        "t": {
+          "type": "float32",
+          "array": false
+        },
+        "valid_window": {
+          "type": "sensor_msgs/RegionOfInterest",
+          "array": false
+        },
+        "min_disparity": {
+          "type": "float32",
+          "array": false
+        },
+        "max_disparity": {
+          "type": "float32",
+          "array": false
+        },
+        "delta_d": {
+          "type": "float32",
+          "array": false
+        }
+      }
+    },
+    "srv": {},
+    "action": {}
+  },
+  "visualization_msgs": {
+    "msg": {
+      "InteractiveMarkerUpdate": {
+        "server_id": {
+          "type": "string",
+          "array": false
+        },
+        "seq_num": {
+          "type": "uint64",
+          "array": false
+        },
+        "KEEP_ALIVE": {
+          "type": "uint8",
+          "array": false
+        },
+        "UPDATE": {
+          "type": "uint8",
+          "array": false
+        },
+        "type": {
+          "type": "uint8",
+          "array": false
+        },
+        "markers": {
+          "type": "InteractiveMarker",
+          "array": true,
+          "fields": {
+            "header": {
+              "type": "std_msgs/Header",
+              "array": false
+            },
+            "pose": {
+              "type": "geometry_msgs/Pose",
+              "array": false
+            },
+            "name": {
+              "type": "string",
+              "array": false
+            },
+            "description": {
+              "type": "string",
+              "array": false
+            },
+            "scale": {
+              "type": "float32",
+              "array": false
+            },
+            "menu_entries": {
+              "type": "MenuEntry",
+              "array": true
+            },
+            "controls": {
+              "type": "InteractiveMarkerControl",
+              "array": true,
+              "fields": {
+                "name": {
+                  "type": "string",
+                  "array": false
+                },
+                "orientation": {
+                  "type": "geometry_msgs/Quaternion",
+                  "array": false
+                },
+                "INHERIT": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "FIXED": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "VIEW_FACING": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "orientation_mode": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "NONE": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "MENU": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "BUTTON": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "MOVE_AXIS": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "MOVE_PLANE": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "ROTATE_AXIS": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "MOVE_ROTATE": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "MOVE_3D": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "ROTATE_3D": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "MOVE_ROTATE_3D": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "interaction_mode": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "always_visible": {
+                  "type": "bool",
+                  "array": false
+                },
+                "markers": {
+                  "type": "Marker",
+                  "array": true
+                },
+                "independent_marker_orientation": {
+                  "type": "bool",
+                  "array": false
+                },
+                "description": {
+                  "type": "string",
+                  "array": false
+                }
+              }
+            }
+          }
+        },
+        "poses": {
+          "type": "InteractiveMarkerPose",
+          "array": true,
+          "fields": {
+            "header": {
+              "type": "std_msgs/Header",
+              "array": false
+            },
+            "pose": {
+              "type": "geometry_msgs/Pose",
+              "array": false
+            },
+            "name": {
+              "type": "string",
+              "array": false
+            }
+          }
+        },
+        "erases": {
+          "type": "string",
+          "array": true
+        }
+      },
+      "InteractiveMarkerControl": {
+        "name": {
+          "type": "string",
+          "array": false
+        },
+        "orientation": {
+          "type": "geometry_msgs/Quaternion",
+          "array": false
+        },
+        "INHERIT": {
+          "type": "uint8",
+          "array": false
+        },
+        "FIXED": {
+          "type": "uint8",
+          "array": false
+        },
+        "VIEW_FACING": {
+          "type": "uint8",
+          "array": false
+        },
+        "orientation_mode": {
+          "type": "uint8",
+          "array": false
+        },
+        "NONE": {
+          "type": "uint8",
+          "array": false
+        },
+        "MENU": {
+          "type": "uint8",
+          "array": false
+        },
+        "BUTTON": {
+          "type": "uint8",
+          "array": false
+        },
+        "MOVE_AXIS": {
+          "type": "uint8",
+          "array": false
+        },
+        "MOVE_PLANE": {
+          "type": "uint8",
+          "array": false
+        },
+        "ROTATE_AXIS": {
+          "type": "uint8",
+          "array": false
+        },
+        "MOVE_ROTATE": {
+          "type": "uint8",
+          "array": false
+        },
+        "MOVE_3D": {
+          "type": "uint8",
+          "array": false
+        },
+        "ROTATE_3D": {
+          "type": "uint8",
+          "array": false
+        },
+        "MOVE_ROTATE_3D": {
+          "type": "uint8",
+          "array": false
+        },
+        "interaction_mode": {
+          "type": "uint8",
+          "array": false
+        },
+        "always_visible": {
+          "type": "bool",
+          "array": false
+        },
+        "markers": {
+          "type": "Marker",
+          "array": true,
+          "fields": {
+            "ARROW": {
+              "type": "int32",
+              "array": false
+            },
+            "CUBE": {
+              "type": "int32",
+              "array": false
+            },
+            "SPHERE": {
+              "type": "int32",
+              "array": false
+            },
+            "CYLINDER": {
+              "type": "int32",
+              "array": false
+            },
+            "LINE_STRIP": {
+              "type": "int32",
+              "array": false
+            },
+            "LINE_LIST": {
+              "type": "int32",
+              "array": false
+            },
+            "CUBE_LIST": {
+              "type": "int32",
+              "array": false
+            },
+            "SPHERE_LIST": {
+              "type": "int32",
+              "array": false
+            },
+            "POINTS": {
+              "type": "int32",
+              "array": false
+            },
+            "TEXT_VIEW_FACING": {
+              "type": "int32",
+              "array": false
+            },
+            "MESH_RESOURCE": {
+              "type": "int32",
+              "array": false
+            },
+            "TRIANGLE_LIST": {
+              "type": "int32",
+              "array": false
+            },
+            "ADD": {
+              "type": "int32",
+              "array": false
+            },
+            "MODIFY": {
+              "type": "int32",
+              "array": false
+            },
+            "DELETE": {
+              "type": "int32",
+              "array": false
+            },
+            "DELETEALL": {
+              "type": "int32",
+              "array": false
+            },
+            "header": {
+              "type": "std_msgs/Header",
+              "array": false
+            },
+            "ns": {
+              "type": "string",
+              "array": false
+            },
+            "id": {
+              "type": "int32",
+              "array": false
+            },
+            "type": {
+              "type": "int32",
+              "array": false
+            },
+            "action": {
+              "type": "int32",
+              "array": false
+            },
+            "pose": {
+              "type": "geometry_msgs/Pose",
+              "array": false
+            },
+            "scale": {
+              "type": "geometry_msgs/Vector3",
+              "array": false
+            },
+            "color": {
+              "type": "std_msgs/ColorRGBA",
+              "array": false
+            },
+            "lifetime": {
+              "type": "builtin_interfaces/Duration",
+              "array": false
+            },
+            "frame_locked": {
+              "type": "bool",
+              "array": false
+            },
+            "points": {
+              "type": "geometry_msgs/Point",
+              "array": true
+            },
+            "colors": {
+              "type": "std_msgs/ColorRGBA",
+              "array": true
+            },
+            "texture_resource": {
+              "type": "string",
+              "array": false
+            },
+            "texture": {
+              "type": "sensor_msgs/CompressedImage",
+              "array": false
+            },
+            "uv_coordinates": {
+              "type": "UVCoordinate",
+              "array": true,
+              "fields": {
+                "u": {
+                  "type": "float32",
+                  "array": false
+                },
+                "v": {
+                  "type": "float32",
+                  "array": false
+                }
+              }
+            },
+            "text": {
+              "type": "string",
+              "array": false
+            },
+            "mesh_resource": {
+              "type": "string",
+              "array": false
+            },
+            "mesh_file": {
+              "type": "MeshFile",
+              "array": false
+            },
+            "mesh_use_embedded_materials": {
+              "type": "bool",
+              "array": false
+            }
+          }
+        },
+        "independent_marker_orientation": {
+          "type": "bool",
+          "array": false
+        },
+        "description": {
+          "type": "string",
+          "array": false
+        }
+      },
+      "ImageMarker": {
+        "CIRCLE": {
+          "type": "int32",
+          "array": false
+        },
+        "LINE_STRIP": {
+          "type": "int32",
+          "array": false
+        },
+        "LINE_LIST": {
+          "type": "int32",
+          "array": false
+        },
+        "POLYGON": {
+          "type": "int32",
+          "array": false
+        },
+        "POINTS": {
+          "type": "int32",
+          "array": false
+        },
+        "ADD": {
+          "type": "int32",
+          "array": false
+        },
+        "REMOVE": {
+          "type": "int32",
+          "array": false
+        },
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "ns": {
+          "type": "string",
+          "array": false
+        },
+        "id": {
+          "type": "int32",
+          "array": false
+        },
+        "type": {
+          "type": "int32",
+          "array": false
+        },
+        "action": {
+          "type": "int32",
+          "array": false
+        },
+        "position": {
+          "type": "geometry_msgs/Point",
+          "array": false
+        },
+        "scale": {
+          "type": "float32",
+          "array": false
+        },
+        "outline_color": {
+          "type": "std_msgs/ColorRGBA",
+          "array": false
+        },
+        "filled": {
+          "type": "uint8",
+          "array": false
+        },
+        "fill_color": {
+          "type": "std_msgs/ColorRGBA",
+          "array": false
+        },
+        "lifetime": {
+          "type": "builtin_interfaces/Duration",
+          "array": false
+        },
+        "points": {
+          "type": "geometry_msgs/Point",
+          "array": true
+        },
+        "outline_colors": {
+          "type": "std_msgs/ColorRGBA",
+          "array": true
+        }
+      },
+      "UVCoordinate": {
+        "u": {
+          "type": "float32",
+          "array": false
+        },
+        "v": {
+          "type": "float32",
+          "array": false
+        }
+      },
+      "InteractiveMarkerInit": {
+        "server_id": {
+          "type": "string",
+          "array": false
+        },
+        "seq_num": {
+          "type": "uint64",
+          "array": false
+        },
+        "markers": {
+          "type": "InteractiveMarker",
+          "array": true,
+          "fields": {
+            "header": {
+              "type": "std_msgs/Header",
+              "array": false
+            },
+            "pose": {
+              "type": "geometry_msgs/Pose",
+              "array": false
+            },
+            "name": {
+              "type": "string",
+              "array": false
+            },
+            "description": {
+              "type": "string",
+              "array": false
+            },
+            "scale": {
+              "type": "float32",
+              "array": false
+            },
+            "menu_entries": {
+              "type": "MenuEntry",
+              "array": true
+            },
+            "controls": {
+              "type": "InteractiveMarkerControl",
+              "array": true,
+              "fields": {
+                "name": {
+                  "type": "string",
+                  "array": false
+                },
+                "orientation": {
+                  "type": "geometry_msgs/Quaternion",
+                  "array": false
+                },
+                "INHERIT": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "FIXED": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "VIEW_FACING": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "orientation_mode": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "NONE": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "MENU": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "BUTTON": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "MOVE_AXIS": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "MOVE_PLANE": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "ROTATE_AXIS": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "MOVE_ROTATE": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "MOVE_3D": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "ROTATE_3D": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "MOVE_ROTATE_3D": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "interaction_mode": {
+                  "type": "uint8",
+                  "array": false
+                },
+                "always_visible": {
+                  "type": "bool",
+                  "array": false
+                },
+                "markers": {
+                  "type": "Marker",
+                  "array": true
+                },
+                "independent_marker_orientation": {
+                  "type": "bool",
+                  "array": false
+                },
+                "description": {
+                  "type": "string",
+                  "array": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "InteractiveMarker": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "pose": {
+          "type": "geometry_msgs/Pose",
+          "array": false
+        },
+        "name": {
+          "type": "string",
+          "array": false
+        },
+        "description": {
+          "type": "string",
+          "array": false
+        },
+        "scale": {
+          "type": "float32",
+          "array": false
+        },
+        "menu_entries": {
+          "type": "MenuEntry",
+          "array": true,
+          "fields": {
+            "id": {
+              "type": "uint32",
+              "array": false
+            },
+            "parent_id": {
+              "type": "uint32",
+              "array": false
+            },
+            "title": {
+              "type": "string",
+              "array": false
+            },
+            "command": {
+              "type": "string",
+              "array": false
+            },
+            "FEEDBACK": {
+              "type": "uint8",
+              "array": false
+            },
+            "ROSRUN": {
+              "type": "uint8",
+              "array": false
+            },
+            "ROSLAUNCH": {
+              "type": "uint8",
+              "array": false
+            },
+            "command_type": {
+              "type": "uint8",
+              "array": false
+            }
+          }
+        },
+        "controls": {
+          "type": "InteractiveMarkerControl",
+          "array": true,
+          "fields": {
+            "name": {
+              "type": "string",
+              "array": false
+            },
+            "orientation": {
+              "type": "geometry_msgs/Quaternion",
+              "array": false
+            },
+            "INHERIT": {
+              "type": "uint8",
+              "array": false
+            },
+            "FIXED": {
+              "type": "uint8",
+              "array": false
+            },
+            "VIEW_FACING": {
+              "type": "uint8",
+              "array": false
+            },
+            "orientation_mode": {
+              "type": "uint8",
+              "array": false
+            },
+            "NONE": {
+              "type": "uint8",
+              "array": false
+            },
+            "MENU": {
+              "type": "uint8",
+              "array": false
+            },
+            "BUTTON": {
+              "type": "uint8",
+              "array": false
+            },
+            "MOVE_AXIS": {
+              "type": "uint8",
+              "array": false
+            },
+            "MOVE_PLANE": {
+              "type": "uint8",
+              "array": false
+            },
+            "ROTATE_AXIS": {
+              "type": "uint8",
+              "array": false
+            },
+            "MOVE_ROTATE": {
+              "type": "uint8",
+              "array": false
+            },
+            "MOVE_3D": {
+              "type": "uint8",
+              "array": false
+            },
+            "ROTATE_3D": {
+              "type": "uint8",
+              "array": false
+            },
+            "MOVE_ROTATE_3D": {
+              "type": "uint8",
+              "array": false
+            },
+            "interaction_mode": {
+              "type": "uint8",
+              "array": false
+            },
+            "always_visible": {
+              "type": "bool",
+              "array": false
+            },
+            "markers": {
+              "type": "Marker",
+              "array": true
+            },
+            "independent_marker_orientation": {
+              "type": "bool",
+              "array": false
+            },
+            "description": {
+              "type": "string",
+              "array": false
+            }
+          }
+        }
+      },
+      "Marker": {
+        "ARROW": {
+          "type": "int32",
+          "array": false
+        },
+        "CUBE": {
+          "type": "int32",
+          "array": false
+        },
+        "SPHERE": {
+          "type": "int32",
+          "array": false
+        },
+        "CYLINDER": {
+          "type": "int32",
+          "array": false
+        },
+        "LINE_STRIP": {
+          "type": "int32",
+          "array": false
+        },
+        "LINE_LIST": {
+          "type": "int32",
+          "array": false
+        },
+        "CUBE_LIST": {
+          "type": "int32",
+          "array": false
+        },
+        "SPHERE_LIST": {
+          "type": "int32",
+          "array": false
+        },
+        "POINTS": {
+          "type": "int32",
+          "array": false
+        },
+        "TEXT_VIEW_FACING": {
+          "type": "int32",
+          "array": false
+        },
+        "MESH_RESOURCE": {
+          "type": "int32",
+          "array": false
+        },
+        "TRIANGLE_LIST": {
+          "type": "int32",
+          "array": false
+        },
+        "ADD": {
+          "type": "int32",
+          "array": false
+        },
+        "MODIFY": {
+          "type": "int32",
+          "array": false
+        },
+        "DELETE": {
+          "type": "int32",
+          "array": false
+        },
+        "DELETEALL": {
+          "type": "int32",
+          "array": false
+        },
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "ns": {
+          "type": "string",
+          "array": false
+        },
+        "id": {
+          "type": "int32",
+          "array": false
+        },
+        "type": {
+          "type": "int32",
+          "array": false
+        },
+        "action": {
+          "type": "int32",
+          "array": false
+        },
+        "pose": {
+          "type": "geometry_msgs/Pose",
+          "array": false
+        },
+        "scale": {
+          "type": "geometry_msgs/Vector3",
+          "array": false
+        },
+        "color": {
+          "type": "std_msgs/ColorRGBA",
+          "array": false
+        },
+        "lifetime": {
+          "type": "builtin_interfaces/Duration",
+          "array": false
+        },
+        "frame_locked": {
+          "type": "bool",
+          "array": false
+        },
+        "points": {
+          "type": "geometry_msgs/Point",
+          "array": true
+        },
+        "colors": {
+          "type": "std_msgs/ColorRGBA",
+          "array": true
+        },
+        "texture_resource": {
+          "type": "string",
+          "array": false
+        },
+        "texture": {
+          "type": "sensor_msgs/CompressedImage",
+          "array": false
+        },
+        "uv_coordinates": {
+          "type": "UVCoordinate",
+          "array": true,
+          "fields": {
+            "u": {
+              "type": "float32",
+              "array": false
+            },
+            "v": {
+              "type": "float32",
+              "array": false
+            }
+          }
+        },
+        "text": {
+          "type": "string",
+          "array": false
+        },
+        "mesh_resource": {
+          "type": "string",
+          "array": false
+        },
+        "mesh_file": {
+          "type": "MeshFile",
+          "array": false,
+          "fields": {
+            "filename": {
+              "type": "string",
+              "array": false
+            },
+            "data": {
+              "type": "uint8",
+              "array": true
+            }
+          }
+        },
+        "mesh_use_embedded_materials": {
+          "type": "bool",
+          "array": false
+        }
+      },
+      "InteractiveMarkerFeedback": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "client_id": {
+          "type": "string",
+          "array": false
+        },
+        "marker_name": {
+          "type": "string",
+          "array": false
+        },
+        "control_name": {
+          "type": "string",
+          "array": false
+        },
+        "KEEP_ALIVE": {
+          "type": "uint8",
+          "array": false
+        },
+        "POSE_UPDATE": {
+          "type": "uint8",
+          "array": false
+        },
+        "MENU_SELECT": {
+          "type": "uint8",
+          "array": false
+        },
+        "BUTTON_CLICK": {
+          "type": "uint8",
+          "array": false
+        },
+        "MOUSE_DOWN": {
+          "type": "uint8",
+          "array": false
+        },
+        "MOUSE_UP": {
+          "type": "uint8",
+          "array": false
+        },
+        "event_type": {
+          "type": "uint8",
+          "array": false
+        },
+        "pose": {
+          "type": "geometry_msgs/Pose",
+          "array": false
+        },
+        "menu_entry_id": {
+          "type": "uint32",
+          "array": false
+        },
+        "mouse_point": {
+          "type": "geometry_msgs/Point",
+          "array": false
+        },
+        "mouse_point_valid": {
+          "type": "bool",
+          "array": false
+        }
+      },
+      "MenuEntry": {
+        "id": {
+          "type": "uint32",
+          "array": false
+        },
+        "parent_id": {
+          "type": "uint32",
+          "array": false
+        },
+        "title": {
+          "type": "string",
+          "array": false
+        },
+        "command": {
+          "type": "string",
+          "array": false
+        },
+        "FEEDBACK": {
+          "type": "uint8",
+          "array": false
+        },
+        "ROSRUN": {
+          "type": "uint8",
+          "array": false
+        },
+        "ROSLAUNCH": {
+          "type": "uint8",
+          "array": false
+        },
+        "command_type": {
+          "type": "uint8",
+          "array": false
+        }
+      },
+      "MarkerArray": {
+        "markers": {
+          "type": "Marker",
+          "array": true,
+          "fields": {
+            "ARROW": {
+              "type": "int32",
+              "array": false
+            },
+            "CUBE": {
+              "type": "int32",
+              "array": false
+            },
+            "SPHERE": {
+              "type": "int32",
+              "array": false
+            },
+            "CYLINDER": {
+              "type": "int32",
+              "array": false
+            },
+            "LINE_STRIP": {
+              "type": "int32",
+              "array": false
+            },
+            "LINE_LIST": {
+              "type": "int32",
+              "array": false
+            },
+            "CUBE_LIST": {
+              "type": "int32",
+              "array": false
+            },
+            "SPHERE_LIST": {
+              "type": "int32",
+              "array": false
+            },
+            "POINTS": {
+              "type": "int32",
+              "array": false
+            },
+            "TEXT_VIEW_FACING": {
+              "type": "int32",
+              "array": false
+            },
+            "MESH_RESOURCE": {
+              "type": "int32",
+              "array": false
+            },
+            "TRIANGLE_LIST": {
+              "type": "int32",
+              "array": false
+            },
+            "ADD": {
+              "type": "int32",
+              "array": false
+            },
+            "MODIFY": {
+              "type": "int32",
+              "array": false
+            },
+            "DELETE": {
+              "type": "int32",
+              "array": false
+            },
+            "DELETEALL": {
+              "type": "int32",
+              "array": false
+            },
+            "header": {
+              "type": "std_msgs/Header",
+              "array": false
+            },
+            "ns": {
+              "type": "string",
+              "array": false
+            },
+            "id": {
+              "type": "int32",
+              "array": false
+            },
+            "type": {
+              "type": "int32",
+              "array": false
+            },
+            "action": {
+              "type": "int32",
+              "array": false
+            },
+            "pose": {
+              "type": "geometry_msgs/Pose",
+              "array": false
+            },
+            "scale": {
+              "type": "geometry_msgs/Vector3",
+              "array": false
+            },
+            "color": {
+              "type": "std_msgs/ColorRGBA",
+              "array": false
+            },
+            "lifetime": {
+              "type": "builtin_interfaces/Duration",
+              "array": false
+            },
+            "frame_locked": {
+              "type": "bool",
+              "array": false
+            },
+            "points": {
+              "type": "geometry_msgs/Point",
+              "array": true
+            },
+            "colors": {
+              "type": "std_msgs/ColorRGBA",
+              "array": true
+            },
+            "texture_resource": {
+              "type": "string",
+              "array": false
+            },
+            "texture": {
+              "type": "sensor_msgs/CompressedImage",
+              "array": false
+            },
+            "uv_coordinates": {
+              "type": "UVCoordinate",
+              "array": true,
+              "fields": {
+                "u": {
+                  "type": "float32",
+                  "array": false
+                },
+                "v": {
+                  "type": "float32",
+                  "array": false
+                }
+              }
+            },
+            "text": {
+              "type": "string",
+              "array": false
+            },
+            "mesh_resource": {
+              "type": "string",
+              "array": false
+            },
+            "mesh_file": {
+              "type": "MeshFile",
+              "array": false
+            },
+            "mesh_use_embedded_materials": {
+              "type": "bool",
+              "array": false
+            }
+          }
+        }
+      },
+      "MeshFile": {
+        "filename": {
+          "type": "string",
+          "array": false
+        },
+        "data": {
+          "type": "uint8",
+          "array": true
+        }
+      },
+      "InteractiveMarkerPose": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "pose": {
+          "type": "geometry_msgs/Pose",
+          "array": false
+        },
+        "name": {
+          "type": "string",
+          "array": false
+        }
+      }
+    },
+    "srv": {
+      "GetInteractiveMarkers": {
+        "request": {},
+        "response": {
+          "sequence_number": {
+            "type": "uint64",
+            "array": false
+          },
+          "markers": {
+            "type": "InteractiveMarker",
+            "array": true,
+            "fields": {
+              "header": {
+                "type": "std_msgs/Header",
+                "array": false
+              },
+              "pose": {
+                "type": "geometry_msgs/Pose",
+                "array": false
+              },
+              "name": {
+                "type": "string",
+                "array": false
+              },
+              "description": {
+                "type": "string",
+                "array": false
+              },
+              "scale": {
+                "type": "float32",
+                "array": false
+              },
+              "menu_entries": {
+                "type": "MenuEntry",
+                "array": true
+              },
+              "controls": {
+                "type": "InteractiveMarkerControl",
+                "array": true,
+                "fields": {
+                  "name": {
+                    "type": "string",
+                    "array": false
+                  },
+                  "orientation": {
+                    "type": "geometry_msgs/Quaternion",
+                    "array": false
+                  },
+                  "INHERIT": {
+                    "type": "uint8",
+                    "array": false
+                  },
+                  "FIXED": {
+                    "type": "uint8",
+                    "array": false
+                  },
+                  "VIEW_FACING": {
+                    "type": "uint8",
+                    "array": false
+                  },
+                  "orientation_mode": {
+                    "type": "uint8",
+                    "array": false
+                  },
+                  "NONE": {
+                    "type": "uint8",
+                    "array": false
+                  },
+                  "MENU": {
+                    "type": "uint8",
+                    "array": false
+                  },
+                  "BUTTON": {
+                    "type": "uint8",
+                    "array": false
+                  },
+                  "MOVE_AXIS": {
+                    "type": "uint8",
+                    "array": false
+                  },
+                  "MOVE_PLANE": {
+                    "type": "uint8",
+                    "array": false
+                  },
+                  "ROTATE_AXIS": {
+                    "type": "uint8",
+                    "array": false
+                  },
+                  "MOVE_ROTATE": {
+                    "type": "uint8",
+                    "array": false
+                  },
+                  "MOVE_3D": {
+                    "type": "uint8",
+                    "array": false
+                  },
+                  "ROTATE_3D": {
+                    "type": "uint8",
+                    "array": false
+                  },
+                  "MOVE_ROTATE_3D": {
+                    "type": "uint8",
+                    "array": false
+                  },
+                  "interaction_mode": {
+                    "type": "uint8",
+                    "array": false
+                  },
+                  "always_visible": {
+                    "type": "bool",
+                    "array": false
+                  },
+                  "markers": {
+                    "type": "Marker",
+                    "array": true
+                  },
+                  "independent_marker_orientation": {
+                    "type": "bool",
+                    "array": false
+                  },
+                  "description": {
+                    "type": "string",
+                    "array": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "action": {}
+  },
+  "diagnostic_msgs": {
+    "msg": {
+      "KeyValue": {
+        "key": {
+          "type": "string",
+          "array": false
+        },
+        "value": {
+          "type": "string",
+          "array": false
+        }
+      },
+      "DiagnosticStatus": {
+        "OK": {
+          "type": "byte",
+          "array": false
+        },
+        "WARN": {
+          "type": "byte",
+          "array": false
+        },
+        "ERROR": {
+          "type": "byte",
+          "array": false
+        },
+        "STALE": {
+          "type": "byte",
+          "array": false
+        },
+        "level": {
+          "type": "byte",
+          "array": false
+        },
+        "name": {
+          "type": "string",
+          "array": false
+        },
+        "message": {
+          "type": "string",
+          "array": false
+        },
+        "hardware_id": {
+          "type": "string",
+          "array": false
+        },
+        "values": {
+          "type": "KeyValue",
+          "array": true,
+          "fields": {
+            "key": {
+              "type": "string",
+              "array": false
+            },
+            "value": {
+              "type": "string",
+              "array": false
+            }
+          }
+        }
+      },
+      "DiagnosticArray": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "status": {
+          "type": "DiagnosticStatus",
+          "array": true,
+          "fields": {
+            "OK": {
+              "type": "byte",
+              "array": false
+            },
+            "WARN": {
+              "type": "byte",
+              "array": false
+            },
+            "ERROR": {
+              "type": "byte",
+              "array": false
+            },
+            "STALE": {
+              "type": "byte",
+              "array": false
+            },
+            "level": {
+              "type": "byte",
+              "array": false
+            },
+            "name": {
+              "type": "string",
+              "array": false
+            },
+            "message": {
+              "type": "string",
+              "array": false
+            },
+            "hardware_id": {
+              "type": "string",
+              "array": false
+            },
+            "values": {
+              "type": "KeyValue",
+              "array": true,
+              "fields": {
+                "key": {
+                  "type": "string",
+                  "array": false
+                },
+                "value": {
+                  "type": "string",
+                  "array": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "srv": {
+      "SelfTest": {
+        "request": {},
+        "response": {
+          "id": {
+            "type": "string",
+            "array": false
+          },
+          "passed": {
+            "type": "byte",
+            "array": false
+          },
+          "status": {
+            "type": "DiagnosticStatus",
+            "array": true,
+            "fields": {
+              "OK": {
+                "type": "byte",
+                "array": false
+              },
+              "WARN": {
+                "type": "byte",
+                "array": false
+              },
+              "ERROR": {
+                "type": "byte",
+                "array": false
+              },
+              "STALE": {
+                "type": "byte",
+                "array": false
+              },
+              "level": {
+                "type": "byte",
+                "array": false
+              },
+              "name": {
+                "type": "string",
+                "array": false
+              },
+              "message": {
+                "type": "string",
+                "array": false
+              },
+              "hardware_id": {
+                "type": "string",
+                "array": false
+              },
+              "values": {
+                "type": "KeyValue",
+                "array": true,
+                "fields": {
+                  "key": {
+                    "type": "string",
+                    "array": false
+                  },
+                  "value": {
+                    "type": "string",
+                    "array": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "AddDiagnostics": {
+        "request": {
+          "load_namespace": {
+            "type": "string",
+            "array": false
+          }
+        },
+        "response": {
+          "success": {
+            "type": "bool",
+            "array": false
+          },
+          "message": {
+            "type": "string",
+            "array": false
+          }
+        }
+      }
+    },
+    "action": {}
+  },
+  "std_msgs": {
+    "msg": {
+      "Float32MultiArray": {
+        "layout": {
+          "type": "MultiArrayLayout",
+          "array": false,
+          "fields": {
+            "dim": {
+              "type": "MultiArrayDimension",
+              "array": true,
+              "fields": {
+                "label": {
+                  "type": "string",
+                  "array": false
+                },
+                "size": {
+                  "type": "uint32",
+                  "array": false
+                },
+                "stride": {
+                  "type": "uint32",
+                  "array": false
+                }
+              }
+            },
+            "data_offset": {
+              "type": "uint32",
+              "array": false
+            }
+          }
+        },
+        "data": {
+          "type": "float32",
+          "array": true
+        }
+      },
+      "ColorRGBA": {
+        "r": {
+          "type": "float32",
+          "array": false
+        },
+        "g": {
+          "type": "float32",
+          "array": false
+        },
+        "b": {
+          "type": "float32",
+          "array": false
+        },
+        "a": {
+          "type": "float32",
+          "array": false
+        }
+      },
+      "Int32MultiArray": {
+        "layout": {
+          "type": "MultiArrayLayout",
+          "array": false,
+          "fields": {
+            "dim": {
+              "type": "MultiArrayDimension",
+              "array": true,
+              "fields": {
+                "label": {
+                  "type": "string",
+                  "array": false
+                },
+                "size": {
+                  "type": "uint32",
+                  "array": false
+                },
+                "stride": {
+                  "type": "uint32",
+                  "array": false
+                }
+              }
+            },
+            "data_offset": {
+              "type": "uint32",
+              "array": false
+            }
+          }
+        },
+        "data": {
+          "type": "int32",
+          "array": true
+        }
+      },
+      "UInt16": {
+        "data": {
+          "type": "uint16",
+          "array": false
+        }
+      },
+      "UInt8": {
+        "data": {
+          "type": "uint8",
+          "array": false
+        }
+      },
+      "UInt32MultiArray": {
+        "layout": {
+          "type": "MultiArrayLayout",
+          "array": false,
+          "fields": {
+            "dim": {
+              "type": "MultiArrayDimension",
+              "array": true,
+              "fields": {
+                "label": {
+                  "type": "string",
+                  "array": false
+                },
+                "size": {
+                  "type": "uint32",
+                  "array": false
+                },
+                "stride": {
+                  "type": "uint32",
+                  "array": false
+                }
+              }
+            },
+            "data_offset": {
+              "type": "uint32",
+              "array": false
+            }
+          }
+        },
+        "data": {
+          "type": "uint32",
+          "array": true
+        }
+      },
+      "Int64MultiArray": {
+        "layout": {
+          "type": "MultiArrayLayout",
+          "array": false,
+          "fields": {
+            "dim": {
+              "type": "MultiArrayDimension",
+              "array": true,
+              "fields": {
+                "label": {
+                  "type": "string",
+                  "array": false
+                },
+                "size": {
+                  "type": "uint32",
+                  "array": false
+                },
+                "stride": {
+                  "type": "uint32",
+                  "array": false
+                }
+              }
+            },
+            "data_offset": {
+              "type": "uint32",
+              "array": false
+            }
+          }
+        },
+        "data": {
+          "type": "int64",
+          "array": true
+        }
+      },
+      "Int32": {
+        "data": {
+          "type": "int32",
+          "array": false
+        }
+      },
+      "Char": {
+        "data": {
+          "type": "char",
+          "array": false
+        }
+      },
+      "Bool": {
+        "data": {
+          "type": "bool",
+          "array": false
+        }
+      },
+      "Int8MultiArray": {
+        "layout": {
+          "type": "MultiArrayLayout",
+          "array": false,
+          "fields": {
+            "dim": {
+              "type": "MultiArrayDimension",
+              "array": true,
+              "fields": {
+                "label": {
+                  "type": "string",
+                  "array": false
+                },
+                "size": {
+                  "type": "uint32",
+                  "array": false
+                },
+                "stride": {
+                  "type": "uint32",
+                  "array": false
+                }
+              }
+            },
+            "data_offset": {
+              "type": "uint32",
+              "array": false
+            }
+          }
+        },
+        "data": {
+          "type": "int8",
+          "array": true
+        }
+      },
+      "UInt16MultiArray": {
+        "layout": {
+          "type": "MultiArrayLayout",
+          "array": false,
+          "fields": {
+            "dim": {
+              "type": "MultiArrayDimension",
+              "array": true,
+              "fields": {
+                "label": {
+                  "type": "string",
+                  "array": false
+                },
+                "size": {
+                  "type": "uint32",
+                  "array": false
+                },
+                "stride": {
+                  "type": "uint32",
+                  "array": false
+                }
+              }
+            },
+            "data_offset": {
+              "type": "uint32",
+              "array": false
+            }
+          }
+        },
+        "data": {
+          "type": "uint16",
+          "array": true
+        }
+      },
+      "Int64": {
+        "data": {
+          "type": "int64",
+          "array": false
+        }
+      },
+      "Header": {
+        "stamp": {
+          "type": "builtin_interfaces/Time",
+          "array": false
+        },
+        "frame_id": {
+          "type": "string",
+          "array": false
+        }
+      },
+      "String": {
+        "data": {
+          "type": "string",
+          "array": false
+        }
+      },
+      "Byte": {
+        "data": {
+          "type": "byte",
+          "array": false
+        }
+      },
+      "Int8": {
+        "data": {
+          "type": "int8",
+          "array": false
+        }
+      },
+      "UInt64": {
+        "data": {
+          "type": "uint64",
+          "array": false
+        }
+      },
+      "MultiArrayDimension": {
+        "label": {
+          "type": "string",
+          "array": false
+        },
+        "size": {
+          "type": "uint32",
+          "array": false
+        },
+        "stride": {
+          "type": "uint32",
+          "array": false
+        }
+      },
+      "Int16": {
+        "data": {
+          "type": "int16",
+          "array": false
+        }
+      },
+      "Empty": {},
+      "Int16MultiArray": {
+        "layout": {
+          "type": "MultiArrayLayout",
+          "array": false,
+          "fields": {
+            "dim": {
+              "type": "MultiArrayDimension",
+              "array": true,
+              "fields": {
+                "label": {
+                  "type": "string",
+                  "array": false
+                },
+                "size": {
+                  "type": "uint32",
+                  "array": false
+                },
+                "stride": {
+                  "type": "uint32",
+                  "array": false
+                }
+              }
+            },
+            "data_offset": {
+              "type": "uint32",
+              "array": false
+            }
+          }
+        },
+        "data": {
+          "type": "int16",
+          "array": true
+        }
+      },
+      "UInt8MultiArray": {
+        "layout": {
+          "type": "MultiArrayLayout",
+          "array": false,
+          "fields": {
+            "dim": {
+              "type": "MultiArrayDimension",
+              "array": true,
+              "fields": {
+                "label": {
+                  "type": "string",
+                  "array": false
+                },
+                "size": {
+                  "type": "uint32",
+                  "array": false
+                },
+                "stride": {
+                  "type": "uint32",
+                  "array": false
+                }
+              }
+            },
+            "data_offset": {
+              "type": "uint32",
+              "array": false
+            }
+          }
+        },
+        "data": {
+          "type": "uint8",
+          "array": true
+        }
+      },
+      "Float64": {
+        "data": {
+          "type": "float64",
+          "array": false
+        }
+      },
+      "UInt32": {
+        "data": {
+          "type": "uint32",
+          "array": false
+        }
+      },
+      "Float64MultiArray": {
+        "layout": {
+          "type": "MultiArrayLayout",
+          "array": false,
+          "fields": {
+            "dim": {
+              "type": "MultiArrayDimension",
+              "array": true,
+              "fields": {
+                "label": {
+                  "type": "string",
+                  "array": false
+                },
+                "size": {
+                  "type": "uint32",
+                  "array": false
+                },
+                "stride": {
+                  "type": "uint32",
+                  "array": false
+                }
+              }
+            },
+            "data_offset": {
+              "type": "uint32",
+              "array": false
+            }
+          }
+        },
+        "data": {
+          "type": "float64",
+          "array": true
+        }
+      },
+      "MultiArrayLayout": {
+        "dim": {
+          "type": "MultiArrayDimension",
+          "array": true,
+          "fields": {
+            "label": {
+              "type": "string",
+              "array": false
+            },
+            "size": {
+              "type": "uint32",
+              "array": false
+            },
+            "stride": {
+              "type": "uint32",
+              "array": false
+            }
+          }
+        },
+        "data_offset": {
+          "type": "uint32",
+          "array": false
+        }
+      },
+      "UInt64MultiArray": {
+        "layout": {
+          "type": "MultiArrayLayout",
+          "array": false,
+          "fields": {
+            "dim": {
+              "type": "MultiArrayDimension",
+              "array": true,
+              "fields": {
+                "label": {
+                  "type": "string",
+                  "array": false
+                },
+                "size": {
+                  "type": "uint32",
+                  "array": false
+                },
+                "stride": {
+                  "type": "uint32",
+                  "array": false
+                }
+              }
+            },
+            "data_offset": {
+              "type": "uint32",
+              "array": false
+            }
+          }
+        },
+        "data": {
+          "type": "uint64",
+          "array": true
+        }
+      },
+      "ByteMultiArray": {
+        "layout": {
+          "type": "MultiArrayLayout",
+          "array": false,
+          "fields": {
+            "dim": {
+              "type": "MultiArrayDimension",
+              "array": true,
+              "fields": {
+                "label": {
+                  "type": "string",
+                  "array": false
+                },
+                "size": {
+                  "type": "uint32",
+                  "array": false
+                },
+                "stride": {
+                  "type": "uint32",
+                  "array": false
+                }
+              }
+            },
+            "data_offset": {
+              "type": "uint32",
+              "array": false
+            }
+          }
+        },
+        "data": {
+          "type": "byte",
+          "array": true
+        }
+      },
+      "Float32": {
+        "data": {
+          "type": "float32",
+          "array": false
+        }
+      }
+    },
+    "srv": {},
+    "action": {}
+  },
+  "actionlib_msgs": {
+    "msg": {
+      "GoalStatus": {
+        "goal_id": {
+          "type": "GoalID",
+          "array": false,
+          "fields": {
+            "stamp": {
+              "type": "builtin_interfaces/Time",
+              "array": false
+            },
+            "id": {
+              "type": "string",
+              "array": false
+            }
+          }
+        },
+        "status": {
+          "type": "uint8",
+          "array": false
+        },
+        "PENDING": {
+          "type": "uint8",
+          "array": false
+        },
+        "ACTIVE": {
+          "type": "uint8",
+          "array": false
+        },
+        "PREEMPTED": {
+          "type": "uint8",
+          "array": false
+        },
+        "SUCCEEDED": {
+          "type": "uint8",
+          "array": false
+        },
+        "ABORTED": {
+          "type": "uint8",
+          "array": false
+        },
+        "REJECTED": {
+          "type": "uint8",
+          "array": false
+        },
+        "PREEMPTING": {
+          "type": "uint8",
+          "array": false
+        },
+        "RECALLING": {
+          "type": "uint8",
+          "array": false
+        },
+        "RECALLED": {
+          "type": "uint8",
+          "array": false
+        },
+        "LOST": {
+          "type": "uint8",
+          "array": false
+        },
+        "text": {
+          "type": "string",
+          "array": false
+        }
+      },
+      "GoalID": {
+        "stamp": {
+          "type": "builtin_interfaces/Time",
+          "array": false
+        },
+        "id": {
+          "type": "string",
+          "array": false
+        }
+      },
+      "GoalStatusArray": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "status_list": {
+          "type": "GoalStatus",
+          "array": true,
+          "fields": {
+            "goal_id": {
+              "type": "GoalID",
+              "array": false
+            },
+            "status": {
+              "type": "uint8",
+              "array": false
+            },
+            "PENDING": {
+              "type": "uint8",
+              "array": false
+            },
+            "ACTIVE": {
+              "type": "uint8",
+              "array": false
+            },
+            "PREEMPTED": {
+              "type": "uint8",
+              "array": false
+            },
+            "SUCCEEDED": {
+              "type": "uint8",
+              "array": false
+            },
+            "ABORTED": {
+              "type": "uint8",
+              "array": false
+            },
+            "REJECTED": {
+              "type": "uint8",
+              "array": false
+            },
+            "PREEMPTING": {
+              "type": "uint8",
+              "array": false
+            },
+            "RECALLING": {
+              "type": "uint8",
+              "array": false
+            },
+            "RECALLED": {
+              "type": "uint8",
+              "array": false
+            },
+            "LOST": {
+              "type": "uint8",
+              "array": false
+            },
+            "text": {
+              "type": "string",
+              "array": false
+            }
+          }
+        }
+      }
+    },
+    "srv": {},
+    "action": {}
+  },
+  "sensor_msgs": {
+    "msg": {
+      "PointField": {
+        "INT8": {
+          "type": "uint8",
+          "array": false
+        },
+        "UINT8": {
+          "type": "uint8",
+          "array": false
+        },
+        "INT16": {
+          "type": "uint8",
+          "array": false
+        },
+        "UINT16": {
+          "type": "uint8",
+          "array": false
+        },
+        "INT32": {
+          "type": "uint8",
+          "array": false
+        },
+        "UINT32": {
+          "type": "uint8",
+          "array": false
+        },
+        "FLOAT32": {
+          "type": "uint8",
+          "array": false
+        },
+        "FLOAT64": {
+          "type": "uint8",
+          "array": false
+        },
+        "name": {
+          "type": "string",
+          "array": false
+        },
+        "offset": {
+          "type": "uint32",
+          "array": false
+        },
+        "datatype": {
+          "type": "uint8",
+          "array": false
+        },
+        "count": {
+          "type": "uint32",
+          "array": false
+        }
+      },
+      "BatteryState": {
+        "POWER_SUPPLY_STATUS_UNKNOWN": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_STATUS_CHARGING": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_STATUS_DISCHARGING": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_STATUS_NOT_CHARGING": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_STATUS_FULL": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_HEALTH_UNKNOWN": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_HEALTH_GOOD": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_HEALTH_OVERHEAT": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_HEALTH_DEAD": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_HEALTH_OVERVOLTAGE": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_HEALTH_UNSPEC_FAILURE": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_HEALTH_COLD": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_HEALTH_WATCHDOG_TIMER_EXPIRE": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_HEALTH_SAFETY_TIMER_EXPIRE": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_TECHNOLOGY_UNKNOWN": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_TECHNOLOGY_NIMH": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_TECHNOLOGY_LION": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_TECHNOLOGY_LIPO": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_TECHNOLOGY_LIFE": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_TECHNOLOGY_NICD": {
+          "type": "uint8",
+          "array": false
+        },
+        "POWER_SUPPLY_TECHNOLOGY_LIMN": {
+          "type": "uint8",
+          "array": false
+        },
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "voltage": {
+          "type": "float32",
+          "array": false
+        },
+        "temperature": {
+          "type": "float32",
+          "array": false
+        },
+        "current": {
+          "type": "float32",
+          "array": false
+        },
+        "charge": {
+          "type": "float32",
+          "array": false
+        },
+        "capacity": {
+          "type": "float32",
+          "array": false
+        },
+        "design_capacity": {
+          "type": "float32",
+          "array": false
+        },
+        "percentage": {
+          "type": "float32",
+          "array": false
+        },
+        "power_supply_status": {
+          "type": "uint8",
+          "array": false
+        },
+        "power_supply_health": {
+          "type": "uint8",
+          "array": false
+        },
+        "power_supply_technology": {
+          "type": "uint8",
+          "array": false
+        },
+        "present": {
+          "type": "bool",
+          "array": false
+        },
+        "cell_voltage": {
+          "type": "float32",
+          "array": true
+        },
+        "cell_temperature": {
+          "type": "float32",
+          "array": true
+        },
+        "location": {
+          "type": "string",
+          "array": false
+        },
+        "serial_number": {
+          "type": "string",
+          "array": false
+        }
+      },
+      "Temperature": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "temperature": {
+          "type": "float64",
+          "array": false
+        },
+        "variance": {
+          "type": "float64",
+          "array": false
+        }
+      },
+      "MagneticField": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "magnetic_field": {
+          "type": "geometry_msgs/Vector3",
+          "array": false
+        },
+        "magnetic_field_covariance": {
+          "type": "float64[9]",
+          "array": false
+        }
+      },
+      "CameraInfo": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "height": {
+          "type": "uint32",
+          "array": false
+        },
+        "width": {
+          "type": "uint32",
+          "array": false
+        },
+        "distortion_model": {
+          "type": "string",
+          "array": false
+        },
+        "d": {
+          "type": "float64",
+          "array": true
+        },
+        "k": {
+          "type": "float64[9]",
+          "array": false
+        },
+        "r": {
+          "type": "float64[9]",
+          "array": false
+        },
+        "p": {
+          "type": "float64[12]",
+          "array": false
+        },
+        "binning_x": {
+          "type": "uint32",
+          "array": false
+        },
+        "binning_y": {
+          "type": "uint32",
+          "array": false
+        },
+        "roi": {
+          "type": "RegionOfInterest",
+          "array": false,
+          "fields": {
+            "x_offset": {
+              "type": "uint32",
+              "array": false
+            },
+            "y_offset": {
+              "type": "uint32",
+              "array": false
+            },
+            "height": {
+              "type": "uint32",
+              "array": false
+            },
+            "width": {
+              "type": "uint32",
+              "array": false
+            },
+            "do_rectify": {
+              "type": "bool",
+              "array": false
+            }
+          }
+        }
+      },
+      "Image": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "height": {
+          "type": "uint32",
+          "array": false
+        },
+        "width": {
+          "type": "uint32",
+          "array": false
+        },
+        "encoding": {
+          "type": "string",
+          "array": false
+        },
+        "is_bigendian": {
+          "type": "uint8",
+          "array": false
+        },
+        "step": {
+          "type": "uint32",
+          "array": false
+        },
+        "data": {
+          "type": "uint8",
+          "array": true
+        }
+      },
+      "MultiDOFJointState": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "joint_names": {
+          "type": "string",
+          "array": true
+        },
+        "transforms": {
+          "type": "geometry_msgs/Transform",
+          "array": true
+        },
+        "twist": {
+          "type": "geometry_msgs/Twist",
+          "array": true
+        },
+        "wrench": {
+          "type": "geometry_msgs/Wrench",
+          "array": true
+        }
+      },
+      "NavSatStatus": {
+        "STATUS_NO_FIX": {
+          "type": "int8",
+          "array": false
+        },
+        "STATUS_FIX": {
+          "type": "int8",
+          "array": false
+        },
+        "STATUS_SBAS_FIX": {
+          "type": "int8",
+          "array": false
+        },
+        "STATUS_GBAS_FIX": {
+          "type": "int8",
+          "array": false
+        },
+        "status": {
+          "type": "int8",
+          "array": false
+        },
+        "SERVICE_GPS": {
+          "type": "uint16",
+          "array": false
+        },
+        "SERVICE_GLONASS": {
+          "type": "uint16",
+          "array": false
+        },
+        "SERVICE_COMPASS": {
+          "type": "uint16",
+          "array": false
+        },
+        "SERVICE_GALILEO": {
+          "type": "uint16",
+          "array": false
+        },
+        "service": {
+          "type": "uint16",
+          "array": false
+        }
+      },
+      "LaserScan": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "angle_min": {
+          "type": "float32",
+          "array": false
+        },
+        "angle_max": {
+          "type": "float32",
+          "array": false
+        },
+        "angle_increment": {
+          "type": "float32",
+          "array": false
+        },
+        "time_increment": {
+          "type": "float32",
+          "array": false
+        },
+        "scan_time": {
+          "type": "float32",
+          "array": false
+        },
+        "range_min": {
+          "type": "float32",
+          "array": false
+        },
+        "range_max": {
+          "type": "float32",
+          "array": false
+        },
+        "ranges": {
+          "type": "float32",
+          "array": true
+        },
+        "intensities": {
+          "type": "float32",
+          "array": true
+        }
+      },
+      "FluidPressure": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "fluid_pressure": {
+          "type": "float64",
+          "array": false
+        },
+        "variance": {
+          "type": "float64",
+          "array": false
+        }
+      },
+      "RegionOfInterest": {
+        "x_offset": {
+          "type": "uint32",
+          "array": false
+        },
+        "y_offset": {
+          "type": "uint32",
+          "array": false
+        },
+        "height": {
+          "type": "uint32",
+          "array": false
+        },
+        "width": {
+          "type": "uint32",
+          "array": false
+        },
+        "do_rectify": {
+          "type": "bool",
+          "array": false
+        }
+      },
+      "LaserEcho": {
+        "echoes": {
+          "type": "float32",
+          "array": true
+        }
+      },
+      "PointCloud": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "points": {
+          "type": "geometry_msgs/Point32",
+          "array": true
+        },
+        "channels": {
+          "type": "ChannelFloat32",
+          "array": true,
+          "fields": {
+            "name": {
+              "type": "string",
+              "array": false
+            },
+            "values": {
+              "type": "float32",
+              "array": true
+            }
+          }
+        }
+      },
+      "CompressedImage": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "format": {
+          "type": "string",
+          "array": false
+        },
+        "data": {
+          "type": "uint8",
+          "array": true
+        }
+      },
+      "Imu": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "orientation": {
+          "type": "geometry_msgs/Quaternion",
+          "array": false
+        },
+        "orientation_covariance": {
+          "type": "float64[9]",
+          "array": false
+        },
+        "angular_velocity": {
+          "type": "geometry_msgs/Vector3",
+          "array": false
+        },
+        "angular_velocity_covariance": {
+          "type": "float64[9]",
+          "array": false
+        },
+        "linear_acceleration": {
+          "type": "geometry_msgs/Vector3",
+          "array": false
+        },
+        "linear_acceleration_covariance": {
+          "type": "float64[9]",
+          "array": false
+        }
+      },
+      "JoyFeedbackArray": {
+        "array": {
+          "type": "JoyFeedback",
+          "array": true,
+          "fields": {
+            "TYPE_LED": {
+              "type": "uint8",
+              "array": false
+            },
+            "TYPE_RUMBLE": {
+              "type": "uint8",
+              "array": false
+            },
+            "TYPE_BUZZER": {
+              "type": "uint8",
+              "array": false
+            },
+            "type": {
+              "type": "uint8",
+              "array": false
+            },
+            "id": {
+              "type": "uint8",
+              "array": false
+            },
+            "intensity": {
+              "type": "float32",
+              "array": false
+            }
+          }
+        }
+      },
+      "Range": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "ULTRASOUND": {
+          "type": "uint8",
+          "array": false
+        },
+        "INFRARED": {
+          "type": "uint8",
+          "array": false
+        },
+        "radiation_type": {
+          "type": "uint8",
+          "array": false
+        },
+        "field_of_view": {
+          "type": "float32",
+          "array": false
+        },
+        "min_range": {
+          "type": "float32",
+          "array": false
+        },
+        "max_range": {
+          "type": "float32",
+          "array": false
+        },
+        "range": {
+          "type": "float32",
+          "array": false
+        }
+      },
+      "Joy": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "axes": {
+          "type": "float32",
+          "array": true
+        },
+        "buttons": {
+          "type": "int32",
+          "array": true
+        }
+      },
+      "JointState": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "name": {
+          "type": "string",
+          "array": true
+        },
+        "position": {
+          "type": "float64",
+          "array": true
+        },
+        "velocity": {
+          "type": "float64",
+          "array": true
+        },
+        "effort": {
+          "type": "float64",
+          "array": true
+        }
+      },
+      "NavSatFix": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "status": {
+          "type": "NavSatStatus",
+          "array": false,
+          "fields": {
+            "STATUS_NO_FIX": {
+              "type": "int8",
+              "array": false
+            },
+            "STATUS_FIX": {
+              "type": "int8",
+              "array": false
+            },
+            "STATUS_SBAS_FIX": {
+              "type": "int8",
+              "array": false
+            },
+            "STATUS_GBAS_FIX": {
+              "type": "int8",
+              "array": false
+            },
+            "status": {
+              "type": "int8",
+              "array": false
+            },
+            "SERVICE_GPS": {
+              "type": "uint16",
+              "array": false
+            },
+            "SERVICE_GLONASS": {
+              "type": "uint16",
+              "array": false
+            },
+            "SERVICE_COMPASS": {
+              "type": "uint16",
+              "array": false
+            },
+            "SERVICE_GALILEO": {
+              "type": "uint16",
+              "array": false
+            },
+            "service": {
+              "type": "uint16",
+              "array": false
+            }
+          }
+        },
+        "latitude": {
+          "type": "float64",
+          "array": false
+        },
+        "longitude": {
+          "type": "float64",
+          "array": false
+        },
+        "altitude": {
+          "type": "float64",
+          "array": false
+        },
+        "position_covariance": {
+          "type": "float64[9]",
+          "array": false
+        },
+        "COVARIANCE_TYPE_UNKNOWN": {
+          "type": "uint8",
+          "array": false
+        },
+        "COVARIANCE_TYPE_APPROXIMATED": {
+          "type": "uint8",
+          "array": false
+        },
+        "COVARIANCE_TYPE_DIAGONAL_KNOWN": {
+          "type": "uint8",
+          "array": false
+        },
+        "COVARIANCE_TYPE_KNOWN": {
+          "type": "uint8",
+          "array": false
+        },
+        "position_covariance_type": {
+          "type": "uint8",
+          "array": false
+        }
+      },
+      "MultiEchoLaserScan": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "angle_min": {
+          "type": "float32",
+          "array": false
+        },
+        "angle_max": {
+          "type": "float32",
+          "array": false
+        },
+        "angle_increment": {
+          "type": "float32",
+          "array": false
+        },
+        "time_increment": {
+          "type": "float32",
+          "array": false
+        },
+        "scan_time": {
+          "type": "float32",
+          "array": false
+        },
+        "range_min": {
+          "type": "float32",
+          "array": false
+        },
+        "range_max": {
+          "type": "float32",
+          "array": false
+        },
+        "ranges": {
+          "type": "LaserEcho",
+          "array": true,
+          "fields": {
+            "echoes": {
+              "type": "float32",
+              "array": true
+            }
+          }
+        },
+        "intensities": {
+          "type": "LaserEcho",
+          "array": true,
+          "fields": {
+            "echoes": {
+              "type": "float32",
+              "array": true
+            }
+          }
+        }
+      },
+      "TimeReference": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "time_ref": {
+          "type": "builtin_interfaces/Time",
+          "array": false
+        },
+        "source": {
+          "type": "string",
+          "array": false
+        }
+      },
+      "RelativeHumidity": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "relative_humidity": {
+          "type": "float64",
+          "array": false
+        },
+        "variance": {
+          "type": "float64",
+          "array": false
+        }
+      },
+      "JoyFeedback": {
+        "TYPE_LED": {
+          "type": "uint8",
+          "array": false
+        },
+        "TYPE_RUMBLE": {
+          "type": "uint8",
+          "array": false
+        },
+        "TYPE_BUZZER": {
+          "type": "uint8",
+          "array": false
+        },
+        "type": {
+          "type": "uint8",
+          "array": false
+        },
+        "id": {
+          "type": "uint8",
+          "array": false
+        },
+        "intensity": {
+          "type": "float32",
+          "array": false
+        }
+      },
+      "Illuminance": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "illuminance": {
+          "type": "float64",
+          "array": false
+        },
+        "variance": {
+          "type": "float64",
+          "array": false
+        }
+      },
+      "ChannelFloat32": {
+        "name": {
+          "type": "string",
+          "array": false
+        },
+        "values": {
+          "type": "float32",
+          "array": true
+        }
+      },
+      "PointCloud2": {
+        "header": {
+          "type": "std_msgs/Header",
+          "array": false
+        },
+        "height": {
+          "type": "uint32",
+          "array": false
+        },
+        "width": {
+          "type": "uint32",
+          "array": false
+        },
+        "fields": {
+          "type": "PointField",
+          "array": true,
+          "fields": {
+            "INT8": {
+              "type": "uint8",
+              "array": false
+            },
+            "UINT8": {
+              "type": "uint8",
+              "array": false
+            },
+            "INT16": {
+              "type": "uint8",
+              "array": false
+            },
+            "UINT16": {
+              "type": "uint8",
+              "array": false
+            },
+            "INT32": {
+              "type": "uint8",
+              "array": false
+            },
+            "UINT32": {
+              "type": "uint8",
+              "array": false
+            },
+            "FLOAT32": {
+              "type": "uint8",
+              "array": false
+            },
+            "FLOAT64": {
+              "type": "uint8",
+              "array": false
+            },
+            "name": {
+              "type": "string",
+              "array": false
+            },
+            "offset": {
+              "type": "uint32",
+              "array": false
+            },
+            "datatype": {
+              "type": "uint8",
+              "array": false
+            },
+            "count": {
+              "type": "uint32",
+              "array": false
+            }
+          }
+        },
+        "is_bigendian": {
+          "type": "bool",
+          "array": false
+        },
+        "point_step": {
+          "type": "uint32",
+          "array": false
+        },
+        "row_step": {
+          "type": "uint32",
+          "array": false
+        },
+        "data": {
+          "type": "uint8",
+          "array": true
+        },
+        "is_dense": {
+          "type": "bool",
+          "array": false
+        }
+      }
+    },
+    "srv": {
+      "SetCameraInfo": {
+        "request": {
+          "camera_info": {
+            "type": "sensor_msgs/CameraInfo",
+            "array": false
+          }
+        },
+        "response": {
+          "success": {
+            "type": "bool",
+            "array": false
+          },
+          "status_message": {
+            "type": "string",
+            "array": false
+          }
+        }
+      }
+    },
+    "action": {}
+  }
+}

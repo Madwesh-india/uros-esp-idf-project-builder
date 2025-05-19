@@ -10,6 +10,7 @@ MICRO_ROS_REPO = "https://github.com/micro-ROS/micro_ros_espidf_component.git"
 CONFIG_FILE = "./uros_components_config.json"
 MICRO_ROS_COMPONENTS = "./uros_components"
 GITIGNORE_PATH = "./.gitignore"
+INTERFACE_GRAPH_PATH = "./interface_graph.json"
 
 UDP = 1
 CUSTOM = 2
@@ -20,11 +21,19 @@ def main():
             json.dump({}, f, indent=4)
 
     json_file = open(CONFIG_FILE, "r+")
+    interface_graph_file = open(INTERFACE_GRAPH_PATH, "r+")
 
     try:
         config_obj = json.load(json_file)
     except json.JSONDecodeError:
         config_obj = {}
+
+    try:
+        interface_graph = json.load(interface_graph_file)
+    except json.JSONDecodeError:
+        assert "create interface_graph using generate_interface_graph.py"
+
+    print(interface_graph.keys())
 
     if "ROS_DISTRO" in config_obj:
         print(f"ROS2 DISTRIBUTION: {config_obj['ROS_DISTRO']}")
