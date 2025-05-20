@@ -26,7 +26,7 @@ A powerful CLI tool to **scaffold micro-ROS node code for ESP32** using the ESP-
 Install required Python packages:
 
 ```bash
-pip install -r requirements.txt
+pip install GitPython
 ```
 
 ---
