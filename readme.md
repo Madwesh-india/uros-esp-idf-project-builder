@@ -31,18 +31,6 @@ pip install GitPython
 
 ---
 
-## 📁 Project Structure
-
-```
-.
-├── main.py                  # Main CLI entry point
-├── templates/               # Code templates (e.g. pub/sub/service/client/timer)
-├── uRosTemplet/            # ESP-IDF base project (used as skeleton)
-├── config.json              # Stores last used settings (auto-created)
-└── README.md
-```
-
----
 
 ## 🧰 Usage
 
