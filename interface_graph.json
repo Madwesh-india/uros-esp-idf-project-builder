@@ -210,26 +210,6 @@
           }
         },
         "response": {
-          "RESULT_SUCCESS": {
-            "type": "uint8",
-            "array": false
-          },
-          "RESULT_MAP_DOES_NOT_EXIST": {
-            "type": "uint8",
-            "array": false
-          },
-          "RESULT_INVALID_MAP_DATA": {
-            "type": "uint8",
-            "array": false
-          },
-          "RESULT_INVALID_MAP_METADATA": {
-            "type": "uint8",
-            "array": false
-          },
-          "RESULT_UNDEFINED_FAILURE": {
-            "type": "uint8",
-            "array": false
-          },
           "map": {
             "type": "nav_msgs/OccupancyGrid",
             "array": false
@@ -1311,67 +1291,7 @@
         }
       },
       "SolidPrimitive": {
-        "BOX": {
-          "type": "uint8",
-          "array": false
-        },
-        "SPHERE": {
-          "type": "uint8",
-          "array": false
-        },
-        "CYLINDER": {
-          "type": "uint8",
-          "array": false
-        },
-        "CONE": {
-          "type": "uint8",
-          "array": false
-        },
-        "PRISM": {
-          "type": "uint8",
-          "array": false
-        },
         "type": {
-          "type": "uint8",
-          "array": false
-        },
-        "dimensions": {
-          "type": "float64",
-          "array": true
-        },
-        "BOX_X": {
-          "type": "uint8",
-          "array": false
-        },
-        "BOX_Y": {
-          "type": "uint8",
-          "array": false
-        },
-        "BOX_Z": {
-          "type": "uint8",
-          "array": false
-        },
-        "SPHERE_RADIUS": {
-          "type": "uint8",
-          "array": false
-        },
-        "CYLINDER_HEIGHT": {
-          "type": "uint8",
-          "array": false
-        },
-        "CYLINDER_RADIUS": {
-          "type": "uint8",
-          "array": false
-        },
-        "CONE_HEIGHT": {
-          "type": "uint8",
-          "array": false
-        },
-        "CONE_RADIUS": {
-          "type": "uint8",
-          "array": false
-        },
-        "PRISM_HEIGHT": {
           "type": "uint8",
           "array": false
         },
@@ -1565,14 +1485,6 @@
           "type": "uint64",
           "array": false
         },
-        "KEEP_ALIVE": {
-          "type": "uint8",
-          "array": false
-        },
-        "UPDATE": {
-          "type": "uint8",
-          "array": false
-        },
         "type": {
           "type": "uint8",
           "array": false
@@ -1617,59 +1529,7 @@
                   "type": "geometry_msgs/Quaternion",
                   "array": false
                 },
-                "INHERIT": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "FIXED": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "VIEW_FACING": {
-                  "type": "uint8",
-                  "array": false
-                },
                 "orientation_mode": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "NONE": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "MENU": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "BUTTON": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "MOVE_AXIS": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "MOVE_PLANE": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "ROTATE_AXIS": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "MOVE_ROTATE": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "MOVE_3D": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "ROTATE_3D": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "MOVE_ROTATE_3D": {
                   "type": "uint8",
                   "array": false
                 },
@@ -1729,59 +1589,7 @@
           "type": "geometry_msgs/Quaternion",
           "array": false
         },
-        "INHERIT": {
-          "type": "uint8",
-          "array": false
-        },
-        "FIXED": {
-          "type": "uint8",
-          "array": false
-        },
-        "VIEW_FACING": {
-          "type": "uint8",
-          "array": false
-        },
         "orientation_mode": {
-          "type": "uint8",
-          "array": false
-        },
-        "NONE": {
-          "type": "uint8",
-          "array": false
-        },
-        "MENU": {
-          "type": "uint8",
-          "array": false
-        },
-        "BUTTON": {
-          "type": "uint8",
-          "array": false
-        },
-        "MOVE_AXIS": {
-          "type": "uint8",
-          "array": false
-        },
-        "MOVE_PLANE": {
-          "type": "uint8",
-          "array": false
-        },
-        "ROTATE_AXIS": {
-          "type": "uint8",
-          "array": false
-        },
-        "MOVE_ROTATE": {
-          "type": "uint8",
-          "array": false
-        },
-        "MOVE_3D": {
-          "type": "uint8",
-          "array": false
-        },
-        "ROTATE_3D": {
-          "type": "uint8",
-          "array": false
-        },
-        "MOVE_ROTATE_3D": {
           "type": "uint8",
           "array": false
         },
@@ -1797,70 +1605,6 @@
           "type": "Marker",
           "array": true,
           "fields": {
-            "ARROW": {
-              "type": "int32",
-              "array": false
-            },
-            "CUBE": {
-              "type": "int32",
-              "array": false
-            },
-            "SPHERE": {
-              "type": "int32",
-              "array": false
-            },
-            "CYLINDER": {
-              "type": "int32",
-              "array": false
-            },
-            "LINE_STRIP": {
-              "type": "int32",
-              "array": false
-            },
-            "LINE_LIST": {
-              "type": "int32",
-              "array": false
-            },
-            "CUBE_LIST": {
-              "type": "int32",
-              "array": false
-            },
-            "SPHERE_LIST": {
-              "type": "int32",
-              "array": false
-            },
-            "POINTS": {
-              "type": "int32",
-              "array": false
-            },
-            "TEXT_VIEW_FACING": {
-              "type": "int32",
-              "array": false
-            },
-            "MESH_RESOURCE": {
-              "type": "int32",
-              "array": false
-            },
-            "TRIANGLE_LIST": {
-              "type": "int32",
-              "array": false
-            },
-            "ADD": {
-              "type": "int32",
-              "array": false
-            },
-            "MODIFY": {
-              "type": "int32",
-              "array": false
-            },
-            "DELETE": {
-              "type": "int32",
-              "array": false
-            },
-            "DELETEALL": {
-              "type": "int32",
-              "array": false
-            },
             "header": {
               "type": "std_msgs/Header",
               "array": false
@@ -1959,34 +1703,6 @@
         }
       },
       "ImageMarker": {
-        "CIRCLE": {
-          "type": "int32",
-          "array": false
-        },
-        "LINE_STRIP": {
-          "type": "int32",
-          "array": false
-        },
-        "LINE_LIST": {
-          "type": "int32",
-          "array": false
-        },
-        "POLYGON": {
-          "type": "int32",
-          "array": false
-        },
-        "POINTS": {
-          "type": "int32",
-          "array": false
-        },
-        "ADD": {
-          "type": "int32",
-          "array": false
-        },
-        "REMOVE": {
-          "type": "int32",
-          "array": false
-        },
         "header": {
           "type": "std_msgs/Header",
           "array": false
@@ -2099,59 +1815,7 @@
                   "type": "geometry_msgs/Quaternion",
                   "array": false
                 },
-                "INHERIT": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "FIXED": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "VIEW_FACING": {
-                  "type": "uint8",
-                  "array": false
-                },
                 "orientation_mode": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "NONE": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "MENU": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "BUTTON": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "MOVE_AXIS": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "MOVE_PLANE": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "ROTATE_AXIS": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "MOVE_ROTATE": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "MOVE_3D": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "ROTATE_3D": {
-                  "type": "uint8",
-                  "array": false
-                },
-                "MOVE_ROTATE_3D": {
                   "type": "uint8",
                   "array": false
                 },
@@ -2221,18 +1885,6 @@
               "type": "string",
               "array": false
             },
-            "FEEDBACK": {
-              "type": "uint8",
-              "array": false
-            },
-            "ROSRUN": {
-              "type": "uint8",
-              "array": false
-            },
-            "ROSLAUNCH": {
-              "type": "uint8",
-              "array": false
-            },
             "command_type": {
               "type": "uint8",
               "array": false
@@ -2251,59 +1903,7 @@
               "type": "geometry_msgs/Quaternion",
               "array": false
             },
-            "INHERIT": {
-              "type": "uint8",
-              "array": false
-            },
-            "FIXED": {
-              "type": "uint8",
-              "array": false
-            },
-            "VIEW_FACING": {
-              "type": "uint8",
-              "array": false
-            },
             "orientation_mode": {
-              "type": "uint8",
-              "array": false
-            },
-            "NONE": {
-              "type": "uint8",
-              "array": false
-            },
-            "MENU": {
-              "type": "uint8",
-              "array": false
-            },
-            "BUTTON": {
-              "type": "uint8",
-              "array": false
-            },
-            "MOVE_AXIS": {
-              "type": "uint8",
-              "array": false
-            },
-            "MOVE_PLANE": {
-              "type": "uint8",
-              "array": false
-            },
-            "ROTATE_AXIS": {
-              "type": "uint8",
-              "array": false
-            },
-            "MOVE_ROTATE": {
-              "type": "uint8",
-              "array": false
-            },
-            "MOVE_3D": {
-              "type": "uint8",
-              "array": false
-            },
-            "ROTATE_3D": {
-              "type": "uint8",
-              "array": false
-            },
-            "MOVE_ROTATE_3D": {
               "type": "uint8",
               "array": false
             },
@@ -2331,70 +1931,6 @@
         }
       },
       "Marker": {
-        "ARROW": {
-          "type": "int32",
-          "array": false
-        },
-        "CUBE": {
-          "type": "int32",
-          "array": false
-        },
-        "SPHERE": {
-          "type": "int32",
-          "array": false
-        },
-        "CYLINDER": {
-          "type": "int32",
-          "array": false
-        },
-        "LINE_STRIP": {
-          "type": "int32",
-          "array": false
-        },
-        "LINE_LIST": {
-          "type": "int32",
-          "array": false
-        },
-        "CUBE_LIST": {
-          "type": "int32",
-          "array": false
-        },
-        "SPHERE_LIST": {
-          "type": "int32",
-          "array": false
-        },
-        "POINTS": {
-          "type": "int32",
-          "array": false
-        },
-        "TEXT_VIEW_FACING": {
-          "type": "int32",
-          "array": false
-        },
-        "MESH_RESOURCE": {
-          "type": "int32",
-          "array": false
-        },
-        "TRIANGLE_LIST": {
-          "type": "int32",
-          "array": false
-        },
-        "ADD": {
-          "type": "int32",
-          "array": false
-        },
-        "MODIFY": {
-          "type": "int32",
-          "array": false
-        },
-        "DELETE": {
-          "type": "int32",
-          "array": false
-        },
-        "DELETEALL": {
-          "type": "int32",
-          "array": false
-        },
         "header": {
           "type": "std_msgs/Header",
           "array": false
@@ -2509,30 +2045,6 @@
           "type": "string",
           "array": false
         },
-        "KEEP_ALIVE": {
-          "type": "uint8",
-          "array": false
-        },
-        "POSE_UPDATE": {
-          "type": "uint8",
-          "array": false
-        },
-        "MENU_SELECT": {
-          "type": "uint8",
-          "array": false
-        },
-        "BUTTON_CLICK": {
-          "type": "uint8",
-          "array": false
-        },
-        "MOUSE_DOWN": {
-          "type": "uint8",
-          "array": false
-        },
-        "MOUSE_UP": {
-          "type": "uint8",
-          "array": false
-        },
         "event_type": {
           "type": "uint8",
           "array": false
@@ -2571,18 +2083,6 @@
           "type": "string",
           "array": false
         },
-        "FEEDBACK": {
-          "type": "uint8",
-          "array": false
-        },
-        "ROSRUN": {
-          "type": "uint8",
-          "array": false
-        },
-        "ROSLAUNCH": {
-          "type": "uint8",
-          "array": false
-        },
         "command_type": {
           "type": "uint8",
           "array": false
@@ -2593,70 +2093,6 @@
           "type": "Marker",
           "array": true,
           "fields": {
-            "ARROW": {
-              "type": "int32",
-              "array": false
-            },
-            "CUBE": {
-              "type": "int32",
-              "array": false
-            },
-            "SPHERE": {
-              "type": "int32",
-              "array": false
-            },
-            "CYLINDER": {
-              "type": "int32",
-              "array": false
-            },
-            "LINE_STRIP": {
-              "type": "int32",
-              "array": false
-            },
-            "LINE_LIST": {
-              "type": "int32",
-              "array": false
-            },
-            "CUBE_LIST": {
-              "type": "int32",
-              "array": false
-            },
-            "SPHERE_LIST": {
-              "type": "int32",
-              "array": false
-            },
-            "POINTS": {
-              "type": "int32",
-              "array": false
-            },
-            "TEXT_VIEW_FACING": {
-              "type": "int32",
-              "array": false
-            },
-            "MESH_RESOURCE": {
-              "type": "int32",
-              "array": false
-            },
-            "TRIANGLE_LIST": {
-              "type": "int32",
-              "array": false
-            },
-            "ADD": {
-              "type": "int32",
-              "array": false
-            },
-            "MODIFY": {
-              "type": "int32",
-              "array": false
-            },
-            "DELETE": {
-              "type": "int32",
-              "array": false
-            },
-            "DELETEALL": {
-              "type": "int32",
-              "array": false
-            },
             "header": {
               "type": "std_msgs/Header",
               "array": false
@@ -2819,59 +2255,7 @@
                     "type": "geometry_msgs/Quaternion",
                     "array": false
                   },
-                  "INHERIT": {
-                    "type": "uint8",
-                    "array": false
-                  },
-                  "FIXED": {
-                    "type": "uint8",
-                    "array": false
-                  },
-                  "VIEW_FACING": {
-                    "type": "uint8",
-                    "array": false
-                  },
                   "orientation_mode": {
-                    "type": "uint8",
-                    "array": false
-                  },
-                  "NONE": {
-                    "type": "uint8",
-                    "array": false
-                  },
-                  "MENU": {
-                    "type": "uint8",
-                    "array": false
-                  },
-                  "BUTTON": {
-                    "type": "uint8",
-                    "array": false
-                  },
-                  "MOVE_AXIS": {
-                    "type": "uint8",
-                    "array": false
-                  },
-                  "MOVE_PLANE": {
-                    "type": "uint8",
-                    "array": false
-                  },
-                  "ROTATE_AXIS": {
-                    "type": "uint8",
-                    "array": false
-                  },
-                  "MOVE_ROTATE": {
-                    "type": "uint8",
-                    "array": false
-                  },
-                  "MOVE_3D": {
-                    "type": "uint8",
-                    "array": false
-                  },
-                  "ROTATE_3D": {
-                    "type": "uint8",
-                    "array": false
-                  },
-                  "MOVE_ROTATE_3D": {
                     "type": "uint8",
                     "array": false
                   },
@@ -2917,22 +2301,6 @@
         }
       },
       "DiagnosticStatus": {
-        "OK": {
-          "type": "byte",
-          "array": false
-        },
-        "WARN": {
-          "type": "byte",
-          "array": false
-        },
-        "ERROR": {
-          "type": "byte",
-          "array": false
-        },
-        "STALE": {
-          "type": "byte",
-          "array": false
-        },
         "level": {
           "type": "byte",
           "array": false
@@ -2973,22 +2341,6 @@
           "type": "DiagnosticStatus",
           "array": true,
           "fields": {
-            "OK": {
-              "type": "byte",
-              "array": false
-            },
-            "WARN": {
-              "type": "byte",
-              "array": false
-            },
-            "ERROR": {
-              "type": "byte",
-              "array": false
-            },
-            "STALE": {
-              "type": "byte",
-              "array": false
-            },
             "level": {
               "type": "byte",
               "array": false
@@ -3039,22 +2391,6 @@
             "type": "DiagnosticStatus",
             "array": true,
             "fields": {
-              "OK": {
-                "type": "byte",
-                "array": false
-              },
-              "WARN": {
-                "type": "byte",
-                "array": false
-              },
-              "ERROR": {
-                "type": "byte",
-                "array": false
-              },
-              "STALE": {
-                "type": "byte",
-                "array": false
-              },
               "level": {
                 "type": "byte",
                 "array": false
@@ -3662,46 +2998,6 @@
           "type": "uint8",
           "array": false
         },
-        "PENDING": {
-          "type": "uint8",
-          "array": false
-        },
-        "ACTIVE": {
-          "type": "uint8",
-          "array": false
-        },
-        "PREEMPTED": {
-          "type": "uint8",
-          "array": false
-        },
-        "SUCCEEDED": {
-          "type": "uint8",
-          "array": false
-        },
-        "ABORTED": {
-          "type": "uint8",
-          "array": false
-        },
-        "REJECTED": {
-          "type": "uint8",
-          "array": false
-        },
-        "PREEMPTING": {
-          "type": "uint8",
-          "array": false
-        },
-        "RECALLING": {
-          "type": "uint8",
-          "array": false
-        },
-        "RECALLED": {
-          "type": "uint8",
-          "array": false
-        },
-        "LOST": {
-          "type": "uint8",
-          "array": false
-        },
         "text": {
           "type": "string",
           "array": false
@@ -3734,46 +3030,6 @@
               "type": "uint8",
               "array": false
             },
-            "PENDING": {
-              "type": "uint8",
-              "array": false
-            },
-            "ACTIVE": {
-              "type": "uint8",
-              "array": false
-            },
-            "PREEMPTED": {
-              "type": "uint8",
-              "array": false
-            },
-            "SUCCEEDED": {
-              "type": "uint8",
-              "array": false
-            },
-            "ABORTED": {
-              "type": "uint8",
-              "array": false
-            },
-            "REJECTED": {
-              "type": "uint8",
-              "array": false
-            },
-            "PREEMPTING": {
-              "type": "uint8",
-              "array": false
-            },
-            "RECALLING": {
-              "type": "uint8",
-              "array": false
-            },
-            "RECALLED": {
-              "type": "uint8",
-              "array": false
-            },
-            "LOST": {
-              "type": "uint8",
-              "array": false
-            },
             "text": {
               "type": "string",
               "array": false
@@ -3788,38 +3044,6 @@
   "sensor_msgs": {
     "msg": {
       "PointField": {
-        "INT8": {
-          "type": "uint8",
-          "array": false
-        },
-        "UINT8": {
-          "type": "uint8",
-          "array": false
-        },
-        "INT16": {
-          "type": "uint8",
-          "array": false
-        },
-        "UINT16": {
-          "type": "uint8",
-          "array": false
-        },
-        "INT32": {
-          "type": "uint8",
-          "array": false
-        },
-        "UINT32": {
-          "type": "uint8",
-          "array": false
-        },
-        "FLOAT32": {
-          "type": "uint8",
-          "array": false
-        },
-        "FLOAT64": {
-          "type": "uint8",
-          "array": false
-        },
         "name": {
           "type": "string",
           "array": false
@@ -3838,90 +3062,6 @@
         }
       },
       "BatteryState": {
-        "POWER_SUPPLY_STATUS_UNKNOWN": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_STATUS_CHARGING": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_STATUS_DISCHARGING": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_STATUS_NOT_CHARGING": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_STATUS_FULL": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_HEALTH_UNKNOWN": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_HEALTH_GOOD": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_HEALTH_OVERHEAT": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_HEALTH_DEAD": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_HEALTH_OVERVOLTAGE": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_HEALTH_UNSPEC_FAILURE": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_HEALTH_COLD": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_HEALTH_WATCHDOG_TIMER_EXPIRE": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_HEALTH_SAFETY_TIMER_EXPIRE": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_TECHNOLOGY_UNKNOWN": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_TECHNOLOGY_NIMH": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_TECHNOLOGY_LION": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_TECHNOLOGY_LIPO": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_TECHNOLOGY_LIFE": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_TECHNOLOGY_NICD": {
-          "type": "uint8",
-          "array": false
-        },
-        "POWER_SUPPLY_TECHNOLOGY_LIMN": {
-          "type": "uint8",
-          "array": false
-        },
         "header": {
           "type": "std_msgs/Header",
           "array": false
@@ -4136,40 +3276,8 @@
         }
       },
       "NavSatStatus": {
-        "STATUS_NO_FIX": {
-          "type": "int8",
-          "array": false
-        },
-        "STATUS_FIX": {
-          "type": "int8",
-          "array": false
-        },
-        "STATUS_SBAS_FIX": {
-          "type": "int8",
-          "array": false
-        },
-        "STATUS_GBAS_FIX": {
-          "type": "int8",
-          "array": false
-        },
         "status": {
           "type": "int8",
-          "array": false
-        },
-        "SERVICE_GPS": {
-          "type": "uint16",
-          "array": false
-        },
-        "SERVICE_GLONASS": {
-          "type": "uint16",
-          "array": false
-        },
-        "SERVICE_COMPASS": {
-          "type": "uint16",
-          "array": false
-        },
-        "SERVICE_GALILEO": {
-          "type": "uint16",
           "array": false
         },
         "service": {
@@ -4334,18 +3442,6 @@
           "type": "JoyFeedback",
           "array": true,
           "fields": {
-            "TYPE_LED": {
-              "type": "uint8",
-              "array": false
-            },
-            "TYPE_RUMBLE": {
-              "type": "uint8",
-              "array": false
-            },
-            "TYPE_BUZZER": {
-              "type": "uint8",
-              "array": false
-            },
             "type": {
               "type": "uint8",
               "array": false
@@ -4364,14 +3460,6 @@
       "Range": {
         "header": {
           "type": "std_msgs/Header",
-          "array": false
-        },
-        "ULTRASOUND": {
-          "type": "uint8",
-          "array": false
-        },
-        "INFRARED": {
-          "type": "uint8",
           "array": false
         },
         "radiation_type": {
@@ -4440,40 +3528,8 @@
           "type": "NavSatStatus",
           "array": false,
           "fields": {
-            "STATUS_NO_FIX": {
-              "type": "int8",
-              "array": false
-            },
-            "STATUS_FIX": {
-              "type": "int8",
-              "array": false
-            },
-            "STATUS_SBAS_FIX": {
-              "type": "int8",
-              "array": false
-            },
-            "STATUS_GBAS_FIX": {
-              "type": "int8",
-              "array": false
-            },
             "status": {
               "type": "int8",
-              "array": false
-            },
-            "SERVICE_GPS": {
-              "type": "uint16",
-              "array": false
-            },
-            "SERVICE_GLONASS": {
-              "type": "uint16",
-              "array": false
-            },
-            "SERVICE_COMPASS": {
-              "type": "uint16",
-              "array": false
-            },
-            "SERVICE_GALILEO": {
-              "type": "uint16",
               "array": false
             },
             "service": {
@@ -4496,22 +3552,6 @@
         },
         "position_covariance": {
           "type": "float64[9]",
-          "array": false
-        },
-        "COVARIANCE_TYPE_UNKNOWN": {
-          "type": "uint8",
-          "array": false
-        },
-        "COVARIANCE_TYPE_APPROXIMATED": {
-          "type": "uint8",
-          "array": false
-        },
-        "COVARIANCE_TYPE_DIAGONAL_KNOWN": {
-          "type": "uint8",
-          "array": false
-        },
-        "COVARIANCE_TYPE_KNOWN": {
-          "type": "uint8",
           "array": false
         },
         "position_covariance_type": {
@@ -4602,18 +3642,6 @@
         }
       },
       "JoyFeedback": {
-        "TYPE_LED": {
-          "type": "uint8",
-          "array": false
-        },
-        "TYPE_RUMBLE": {
-          "type": "uint8",
-          "array": false
-        },
-        "TYPE_BUZZER": {
-          "type": "uint8",
-          "array": false
-        },
         "type": {
           "type": "uint8",
           "array": false
@@ -4668,38 +3696,6 @@
           "type": "PointField",
           "array": true,
           "fields": {
-            "INT8": {
-              "type": "uint8",
-              "array": false
-            },
-            "UINT8": {
-              "type": "uint8",
-              "array": false
-            },
-            "INT16": {
-              "type": "uint8",
-              "array": false
-            },
-            "UINT16": {
-              "type": "uint8",
-              "array": false
-            },
-            "INT32": {
-              "type": "uint8",
-              "array": false
-            },
-            "UINT32": {
-              "type": "uint8",
-              "array": false
-            },
-            "FLOAT32": {
-              "type": "uint8",
-              "array": false
-            },
-            "FLOAT64": {
-              "type": "uint8",
-              "array": false
-            },
             "name": {
               "type": "string",
               "array": false

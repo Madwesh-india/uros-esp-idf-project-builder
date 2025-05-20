@@ -22,15 +22,19 @@ def split_modifiers(rawtype):
 def parse_block(lines):
     d = {}
     for line in lines:
-        line = line.strip()
-        if not line or line.startswith('#'):
+        raw = line.split('#', 1)[0].strip()
+        if not raw:
             continue
-        m = FIELD_RE.match(line)
+        # Skip constant definitions (lines containing '=' in field decl)
+        if '=' in raw:
+            continue
+        m = FIELD_RE.match(raw)
         if not m:
             continue
         base, arr = split_modifiers(m.group('rawtype'))
         entry = {"type": base, "array": arr}
 
+        # If nested message type, attach its fields
         for full, nested in MSG_REGISTRY.items():
             if full.endswith(f"/{base}"):
                 entry["fields"] = nested
