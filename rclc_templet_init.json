@@ -1,6 +1,20 @@
 {
-    "rcl_publisher_t": "    RCCHECK(rclc_publisher_init_<||Reliability||>(\n        &<||HandlerObject||>,\n        &node,\n        ROSIDL_GET_MSG_TYPE_SUPPORT(<||TopicType||>),\n        \"<||TopicName||>\"));",
-    "rcl_subscription_t": "    RCCHECK(rclc_subscription_init_<||Reliability||>(\n        &<||HandlerObject||>,\n        &node,\n        ROSIDL_GET_MSG_TYPE_SUPPORT(<||TopicTypeComa||>),\n        \"<||TopicName||>\"));",
-    "handler_subscription": "    RCCHECK(rclc_executor_add_subscription(&executor, &<||HandlerObject||>, &<||MsgName||>, &<||CallBackName||>, ON_NEW_DATA));",
-    "call_back_subscription": "void <||CallBackName||>(const void * msgin) {\n    const <||TopicType||> * msg = (const <||TopicType||> *)msgin;\n}"
+  "rcl_publisher_t": "    RCCHECK(rclc_publisher_init_<||Reliability||>(\n        &<||HandlerObject||>,\n        &node,\n        ROSIDL_GET_MSG_TYPE_SUPPORT(<||TopicTypeComa||>),\n        \"<||TopicName||>\"));",
+  "publish_data":   "        RCSOFTCHECK(rcl_publish(&<||HandlerObject||>, &<||MsgName||>, NULL));",
+
+  "rcl_subscription_t":      "    RCCHECK(rclc_subscription_init_<||Reliability||>(\n        &<||HandlerObject||>,\n        &node,\n        ROSIDL_GET_MSG_TYPE_SUPPORT(<||TopicTypeComa||>),\n        \"<||TopicName||>\"));",
+  "handler_subscription":   "    RCCHECK(rclc_executor_add_subscription(&executor, &<||HandlerObject||>, &<||MsgName||>, &<||CallBackName||>, ON_NEW_DATA));",
+  "call_back_subscription": "void <||CallBackName||>(const void * msgin) {\n    const <||TopicType||> * msg = (const <||TopicType||> *)msgin;\n}",
+
+  "rcl_timer_t":      "    RCCHECK(rclc_timer_init_default2(\n        &<||HandlerObject||>,\n        &support,\n        RCL_MS_TO_NS(<||TimerRate||>),\n        <||CallBackName||>,\n        true));",
+  "handler_timer":    "    RCCHECK(rclc_executor_add_timer(&executor, &<||HandlerObject||>));",
+  "call_back_timer":  "void <||CallBackName||>(rcl_timer_t * timer, int64_t last_call_time)\n{\n    RCLC_UNUSED(last_call_time);\n    if (timer != NULL) {\n        // TODO: timer callback body\n    }\n}",
+
+  "rcl_client_t":     "    RCCHECK(rclc_client_init_default(\n        &<||HandlerObject||>,\n        &node,\n        ROSIDL_GET_SRV_TYPE_SUPPORT(<||ServiceTypeComa||>),\n        \"<||ServiceName||>\"\n    ));",
+  "client_send":      "        int64_t <||ServiceName||>_seq_no;\n        RCCHECK(rcl_send_request(&<||HandlerObject||>, &<||RequestMsg||>, &<||ServiceName||>_seq_no));",
+  "client_take":      "        if (rcl_take_response(&<||HandlerObject||>, &<||ResponseMsg||>, NULL) == RCL_RET_OK) {\n        // TODO: handle response\n        } else {\n        // no response or error\n        }",
+
+  "rcl_service_t":    "    RCCHECK(rclc_service_init_default(\n        &<||HandlerObject||>,\n        &node,\n        ROSIDL_GET_SRV_TYPE_SUPPORT(<||ServiceTypeComa||>),\n        \"<||ServiceName||>\"\n    ));",
+  "handler_service":  "    RCCHECK(rclc_executor_add_service(&executor, &<||HandlerObject||>, &<||RequestMsg||>, &<||CallBackName||>, ON_NEW_DATA));",
+  "call_back_service":"void <||CallBackName||>(const void * reqin, void * resout) {\n    const <||ServiceType||>_Request * req = (const <||ServiceType||>_Request *)reqin;\n    <||ServiceType||>_Response * res = (<||ServiceType||>_Response *)resout;\n    // TODO: fill in res based on req\n}"
 }

@@ -18,7 +18,7 @@
 #include <rclc/rclc.h>
 #include <rclc/executor.h>
 
-// <||Headers||>
+<||Headers||>
 
 #ifdef CONFIG_MICRO_ROS_ESP_XRCE_DDS_MIDDLEWARE
     #include <rmw_microros/rmw_microros.h>
@@ -42,9 +42,9 @@
     } \
 }
 
-// <||Variables||>
+<||Variables||>
 
-// <||Callbacks||>
+<||Callbacks||>
 
 void micro_ros_task(void * arg) {
     rcl_allocator_t allocator = rcl_get_default_allocator();
@@ -69,17 +69,17 @@ void micro_ros_task(void * arg) {
     rcl_node_t node;
     RCCHECK(rclc_node_init_default(&node, "<||Nodename||>", "<||Namespace||>", &support));
     
-    // <||InitializingThings||>
+<||InitializingThings||>
 
     rclc_executor_t executor;
     RCCHECK(rclc_executor_init(&executor, &support.context, 1, &allocator));
-    // <||AddCallbacks||>
+<||AddCallbacks||>
 
     while (1) {        
         /* Process any incoming micro-ROS messages */
         rclc_executor_spin_some(&executor, RCL_MS_TO_NS(10));
         vTaskDelay(pdMS_TO_TICKS(10));
-        // <||ExamplePublish||>
+<||ExamplePublish||>
     }
 
 }
@@ -111,5 +111,5 @@ void app_main(void)
         NULL                               // Task handle (not used).
     );
 
-    // <||Tasks||>
+<||Tasks||>
 }
