@@ -69,7 +69,7 @@ Example generated code for a publisher:
 RCCHECK(rclc_publisher_init_best_effort(
     &battery_publisher,
     &node,
-    ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs__msg__Float32),
+    ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32),
     "battery"
 ));
 
