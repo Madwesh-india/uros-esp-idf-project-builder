@@ -111,4 +111,4 @@ Contributions welcome! If you find bugs or want new features:
 
 ## 📝 License
 
-MIT License
+Apache License 2.0
